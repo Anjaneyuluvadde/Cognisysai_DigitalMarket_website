@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cognisys AI — Home | AI-Powered Digital Marketing Hyderabad</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow+Condensed:wght@600;700;800;900&family=Mulish:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    /* ═══ HERO ═══ */
+    #hero {
+      min-height: 100vh;
+      background: var(--navy2);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 76px;
+    }
+
+    .hero-dots {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 45%;
+      height: 60%;
+      background-image: radial-gradient(circle, rgba(240, 90, 26, .25) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity: .5;
+    }
+
+    .hero-shape-1 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 500px solid rgba(240, 90, 26, .08);
+      border-left: 600px solid transparent;
+    }
+
+    .hero-shape-2 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 280px;
+      height: 280px;
+      background: var(--orange);
+      clip-path: polygon(0 100%, 100% 100%, 0 0);
+      opacity: .12;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2.5rem 5% 5rem;
+      margin-top: -3vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: rgba(240, 90, 26, .15);
+      border-left: 3px solid var(--orange);
+      padding: .4rem .95rem .4rem .75rem;
+      font-family: var(--font);
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+      animation: fadeUp .5s ease .1s both;
+    }
+
+    .hero-h1 {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      line-height: .95;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+      color: #fff;
+      animation: fadeUp .7s ease .2s both;
+    }
+
+    .hero-h1 .or {
+      color: var(--orange);
+    }
+
+    .hero-h1 .outline {
+      -webkit-text-stroke: 2px rgba(255, 255, 255, .6);
+      color: transparent;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      animation: fadeUp .6s ease .3s both;
+    }
+
+    .hd-line {
+      flex: 1;
+      max-width: 60px;
+      height: 3px;
+      background: var(--orange);
+    }
+
+    .hd-text {
+      font-family: var(--font);
+      font-size: .78rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .55);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, .7);
+      line-height: 1.85;
+      max-width: 500px;
+      animation: fadeUp .7s ease .35s both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      animation: fadeUp .7s ease .45s both;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      animation: fadeUp .7s ease .55s both;
+    }
+
+    .hs-item {
+      text-align: center;
+    }
+
+    .hs-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 2.8rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .hs-lbl {
+      font-size: .7rem;
+      color: rgba(255, 255, 255, .5);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-top: .3rem;
+    }
+
+    .hs-div {
+      width: 1px;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    /* Hero right */
+    .hero-right {
+      position: relative;
+      height: 520px;
+      margin-top: -1rem;
+      animation: fadeIn .8s ease .5s both;
+    }
+
+    .hi-main {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 75%;
+      height: 75%;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
+    }
+
+    .hi-secondary {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 55%;
+      height: 55%;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 5px solid var(--navy2);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+      z-index: 2;
+    }
+
+    .hi-chevron {
+      position: absolute;
+      right: 20%;
+      top: 65%;
+      z-index: 3;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hi-badge {
+      position: absolute;
+      right: -2%;
+      bottom: 25%;
+      background: var(--orange);
+      color: #fff;
+      padding: 1rem 1.4rem;
+      z-index: 4;
+      min-width: 160px;
+      box-shadow: 0 10px 30px rgba(240, 90, 26, .4);
+    }
+
+    .hib-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .hib-txt {
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .85;
+    }
+
+    .hi-block {
+      position: absolute;
+      left: 3%;
+      top: 5%;
+      width: 38px;
+      background: var(--orange);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      padding: .8rem .4rem;
+      z-index: 3;
+    }
+
+    .hi-block span {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .7);
+    }
+
+    .hi-frame {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 75%;
+      height: 75%;
+      border: 3px solid rgba(240, 90, 26, .3);
+      transform: translate(10px, -10px);
+      pointer-events: none;
+    }
+
+    /* Responsive */
+    @media(max-width:1100px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        display: none;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:600px) {
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .marquee-wrap {
+      margin-top: -10vh;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Additional Sections Info Grid */
+    .info-section {
+      background: var(--white);
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      align-items: center;
+      margin-bottom: 7rem;
+    }
+
+    .info-grid:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-grid.rev {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .ig-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .ig-img {
+      position: relative;
+      height: 440px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(135deg, var(--navy) 0%, #1a2d42 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      cursor: pointer;
+    }
+
+    .ig-img:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 40px 80px rgba(240, 90, 26, 0.25);
+    }
+
+    .ig-img img {
+      transition: transform 0.7s ease;
+    }
+
+    .ig-img:hover img {
+      transform: scale(1.06);
+    }
+
+    .ig-icon-emoji {
+      font-size: 5rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .ig-blob {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: var(--orange);
+      filter: blur(80px);
+      opacity: 0.25;
+      z-index: -1;
+    }
+
+    /* Overlapping Visual Cards */
+    .ig-visual {
+      position: relative;
+      height: 480px;
+      width: 100%;
+    }
+
+    .igv-main {
+      position: absolute;
+      right: 5%;
+      top: 0;
+      width: 85%;
+      height: 75%;
+      background: linear-gradient(135deg, var(--navy2) 0%, var(--navy) 100%);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .igv-main::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 80% 20%, rgba(240, 90, 26, .1), transparent 60%);
+    }
+
+    .igv-main-inner {
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .igv-icon {
+      font-size: 3.8rem;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .igv-title {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+    }
+
+    .igv-title span {
+      color: var(--orange);
+    }
+
+    .igv-sub {
+      font-family: var(--font);
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    .igv-small {
+      position: absolute;
+      left: 0;
+      bottom: 5%;
+      width: 55%;
+      height: 55%;
+      background: var(--orange);
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(240, 90, 26, 0.3);
+      border: 6px solid #fff;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .igv-small-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 3.5rem;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .igv-small-txt {
+      font-family: var(--font);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.5rem;
+    }
+
+    .igv-small-sub {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .igv-badge {
+      position: absolute;
+      right: -15px;
+      bottom: 25%;
+      background: #fff;
+      color: var(--navy);
+      padding: 1.2rem;
+      border-radius: 6px;
+      z-index: 4;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      min-width: 140px;
+    }
+
+    .igv-badge-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .igv-badge-txt {
+      font-family: var(--font);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    .ig-visual:hover .igv-main {
+      transform: translateY(-8px);
+    }
+
+    .ig-visual:hover .igv-small {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    .info-grid.rev .ig-visual .igv-main {
+      right: auto;
+      left: 5%;
+    }
+
+    .info-grid.rev .ig-visual .igv-small {
+      left: auto;
+      right: 0;
+    }
+
+    .info-grid.rev .ig-visual .igv-badge {
+      right: auto;
+      left: -15px;
+    }
+
+    @media(max-width:900px) {
+      .ig-visual {
+        height: 400px;
+        margin-top: 2rem;
+      }
+
+      .info-grid.rev .ig-visual .igv-main {
+        right: 5%;
+        left: auto;
+      }
+
+      .info-grid.rev .ig-visual .igv-small {
+        left: 0;
+        right: auto;
+      }
+
+      .info-grid.rev .ig-visual .igv-badge {
+        right: -15px;
+        left: auto;
+      }
+    }
+
+    .ig-list {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .ig-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .ig-item-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--orange);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+      margin-top: 0.1rem;
+    }
+
+    .ig-quote {
+      margin-top: 2.2rem;
+      padding: 1.5rem 2rem;
+      background: rgba(240, 90, 26, 0.05);
+      border-left: 4px solid var(--orange);
+      font-family: var(--font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+
+      .info-grid,
+      .info-grid.rev {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+
+      .ig-img {
+        height: 320px;
+        order: -1;
+      }
+
+      .info-section {
+        padding: 4rem 0;
+      }
+
+      .info-grid {
+        margin-bottom: 5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="cr"></div>
+
+  <!-- MOBILE MENU -->
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" id="mobClose">✕</button>
+    <a href="home.html" onclick="closeMenu()">Home</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="services.html" onclick="closeMenu()">Services</a>
+    <a href="packages.html" onclick="closeMenu()">Packages</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo">
+        <img src="logo.png" alt="Cognisys AI Logo" class="logo-icon" />
+        <div class="nav-logo-txt">
+          <div class="nlt-main">COGNISYS <span>AI</span></div>
+          <div class="nlt-sub">Digital Marketing </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li class="active"><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+
+        <a href="contact.html" class="nav-cta">Free Audit →</a>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-dots"></div>
+    <div class="hero-shape-1"></div>
+    <div class="hero-shape-2"></div>
+    <div class="hero-content container">
+      <div>
+        <div class="hero-tag">Deep-Tech · AI-Powered · Hyderabad</div>
+        <h1 class="hero-h1">
+          Unlocking<br>
+          <span class="or">Growth</span><br>
+          <span class="outline">By Design.</span>
+        </h1>
+        <div class="hero-divider">
+          <div class="hd-line"></div>
+          <div class="hd-text">Precision Digital Marketing</div>
+        </div>
+        <p class="hero-sub">A Deep-Tech Company Building Intelligent Business Acceleration Platforms. We deploy
+          end-to-end marketing ecosystems powered by our proprietary AI layer — with <strong style="color:#fff">zero
+            upfront risk</strong> and guaranteed results across 6 platforms.</p>
+        <div class="hero-btns">
+          <a href="contact.html" class="btn-orange"><span>Start Growing</span><span class="arr">↗</span></a>
+          <a href="about.html" class="btn-outline-w">Discover More</a>
+        </div>
+
+      </div>
+      <!-- Hero Right Visual -->
+      <div class="hero-right">
+        <div class="hi-frame"></div>
+        <div class="hi-main">
+          <div
+            style="width:100%;height:100%;background:linear-gradient(135deg,#1a3a5c 0%,#0f2030 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <div
+              style="position:absolute;inset:0;background-image:radial-gradient(circle at 30% 40%,rgba(240,90,26,.2),transparent 50%),radial-gradient(circle at 70% 70%,rgba(107,40,217,.15),transparent 50%);">
+            </div>
+            <div style="text-align:center;position:relative;z-index:1;padding:2rem;">
+              <img src="logo.png" alt="Cognisys AI Logo"
+                style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;" />
+              <div
+                style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;color:#fff;letter-spacing:.04em;text-transform:uppercase;">
+                AI Performance<br><span style="color:#f05a1a">Layer Active</span></div>
+              <div style="margin-top:1.2rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;">
+                <span
+                  style="background:rgba(240,90,26,.2);border:1px solid rgba(240,90,26,.4);color:#fff;font-family:'Mulish',sans-serif;font-size:.7rem;padding:.3rem .75rem;">YouTube</span>
+                <span
+                  style="background:rgba(240,90,26,.2);border:1px solid rgba(240,90,26,.4);color:#fff;font-family:'Mulish',sans-serif;font-size:.7rem;padding:.3rem .75rem;">Google</span>
+                <span
+                  style="background:rgba(240,90,26,.2);border:1px solid rgba(240,90,26,.4);color:#fff;font-family:'Mulish',sans-serif;font-size:.7rem;padding:.3rem .75rem;">Meta</span>
+                <span
+                  style="background:rgba(240,90,26,.2);border:1px solid rgba(240,90,26,.4);color:#fff;font-family:'Mulish',sans-serif;font-size:.7rem;padding:.3rem .75rem;">Instagram</span>
+                <span
+                  style="background:rgba(240,90,26,.2);border:1px solid rgba(240,90,26,.4);color:#fff;font-family:'Mulish',sans-serif;font-size:.7rem;padding:.3rem .75rem;">SEO</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hi-secondary">
+          <div
+            style="width:100%;height:100%;background:linear-gradient(135deg,#1e3a5c,#2d1a4e);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;">
+            <div
+              style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:3rem;color:#f05a1a;line-height:1;">
+              98%</div>
+            <div
+              style="font-family:'Mulish',sans-serif;font-size:.7rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem;">
+              Client Retention</div>
+            <div style="width:40px;height:2px;background:#f05a1a;margin:.8rem auto;"></div>
+            <div
+              style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;color:#fff;line-height:1;">
+              280+</div>
+            <div
+              style="font-family:'Mulish',sans-serif;font-size:.7rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem;">
+              Campaigns Launched</div>
+          </div>
+        </div>
+        <div class="hi-chevron">
+          <svg width="70" height="50" viewBox="0 0 70 50" fill="none">
+            <path d="M0 0 L35 25 L70 0" stroke="#f05a1a" stroke-width="5" fill="none" opacity="0.8" />
+            <path d="M0 12 L35 37 L70 12" stroke="#f05a1a" stroke-width="5" fill="none" opacity="0.5" />
+            <path d="M0 24 L35 49 L70 24" stroke="#f05a1a" stroke-width="5" fill="none" opacity="0.25" />
+          </svg>
+        </div>
+        <div class="hi-badge">
+          <div class="hib-num">15%</div>
+          <div class="hib-txt">Success Fee<br>Only After Results</div>
+        </div>
+        <div class="hi-block"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="mq-track">
+      <div class="mq-item">YouTube Marketing</div>
+      <div class="mq-item">Google Ads & SEO</div>
+      <div class="mq-item">Facebook Ecosystem</div>
+      <div class="mq-item">Instagram Reels</div>
+      <div class="mq-item">Meta Campaigns</div>
+      <div class="mq-item">AI Performance Layer</div>
+      <div class="mq-item">Zero Upfront Fees</div>
+      <div class="mq-item">Results-Based Model</div>
+      <div class="mq-item">YouTube Marketing</div>
+      <div class="mq-item">Google Ads & SEO</div>
+      <div class="mq-item">Facebook Ecosystem</div>
+      <div class="mq-item">Instagram Reels</div>
+      <div class="mq-item">Meta Campaigns</div>
+      <div class="mq-item">AI Performance Layer</div>
+      <div class="mq-item">Zero Upfront Fees</div>
+      <div class="mq-item">Results-Based Model</div>
+    </div>
+  </div>
+
+  <!-- HIGHLIGHT SECTIONS -->
+  <section class="info-section">
+    <div class="container" style="position: relative;">
+
+      <!-- Section 1 -->
+      <div class="info-grid">
+        <div class="ig-text reveal-left">
+          <div class="sec-tag">The Intelligence Behind the Growth</div>
+          <h2 class="sec-title">Beyond Algorithms.<br><span class="or">Real Intelligence.</span></h2>
+          <p class="sec-desc">Most agencies guess; we calculate. At Cognisys AI, we bridge the gap between raw data and
+            human-centric marketing. By leveraging a proprietary Deep-Tech Architecture, we don’t just automate your
+            tasks—we evolve your brand’s digital DNA. Our systems analyze thousands of market variables in real-time to
+            ensure every rupee spent is an investment toward market dominance.</p>
+
+          <div class="ig-list">
+            <div class="ig-item">
+              <div class="ig-item-icon">✓</div>
+              <div><strong>Adaptive Learning:</strong> Our models pivot as fast as the trends do.</div>
+            </div>
+            <div class="ig-item">
+              <div class="ig-item-icon">✓</div>
+              <div><strong>Precision Targeting:</strong> We find the customers you didn't know you were missing.</div>
+            </div>
+            <div class="ig-item">
+              <div class="ig-item-icon">✓</div>
+              <div><strong>End-to-End Visibility:</strong> Total transparency from the first click to the final
+                enrollment.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ig-visual reveal-right">
+          <div class="igv-main">
+            <div class="igv-main-inner">
+              <div class="igv-icon">🧠</div>
+              <div class="igv-title">Proprietary<br><span style="color:#f05a1a">Deep-Tech</span></div>
+              <div class="igv-sub">Advanced machine learning<br>algorithms.</div>
+            </div>
+          </div>
+          <div class="igv-small">
+            <div class="igv-small-num">10k+</div>
+            <div class="igv-small-txt">Variables</div>
+            <div class="igv-small-sub">Analyzed per second</div>
+          </div>
+          <div class="igv-badge">
+            <div class="igv-badge-num">100%</div>
+            <div class="igv-badge-txt">Total<br>Visibility</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="info-grid rev">
+        <div class="ig-visual reveal-left">
+          <div class="igv-main">
+            <div class="igv-main-inner">
+              <div class="igv-icon">🎯</div>
+              <div class="igv-title">Results<br><span style="color:#f05a1a">Above All</span></div>
+              <div class="igv-sub">Revenue perfectly aligned<br>with your scale.</div>
+            </div>
+          </div>
+          <div class="igv-small">
+            <div class="igv-small-num">Zero</div>
+            <div class="igv-small-txt">Upfront Fees</div>
+            <div class="igv-small-sub">Risk-free partnership</div>
+          </div>
+          <div class="igv-badge">
+            <div class="igv-badge-num">15%</div>
+            <div class="igv-badge-txt">Success<br>Fee</div>
+          </div>
+        </div>
+        <div class="ig-text reveal-right">
+          <div class="sec-tag">Our "Results-First" Philosophy</div>
+          <h2 class="sec-title">Your Success is Our<br><span class="or">Only Metric.</span></h2>
+          <p class="sec-desc">We’ve pioneered a Risk-Free Partnership Model because we believe in our technology. In an
+            industry filled with "management fees" and "retainers," Cognisys AI stands alone by aligning our revenue
+            directly with your growth. If you don't scale, we don't profit. This performance-driven DNA ensures that our
+            team—and our AI—is working around the clock to hit your specific KPIs.</p>
+
+          <div class="ig-quote">
+            "We don't charge for effort; we charge for outcomes. That is the Cognisys promise."
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="info-grid">
+        <div class="ig-text reveal-left">
+          <div class="sec-tag">The Future of Business Acceleration</div>
+          <h2 class="sec-title">Built to Scale.<br><span class="or">Driven by Data.</span></h2>
+          <p class="sec-desc">The digital landscape is becoming increasingly fragmented. To win, businesses need more
+            than just a social media presence—they need an Intelligent Ecosystem. Whether you are a startup looking for
+            your first 100 enrollments or an established enterprise seeking to optimize your ROI, our "AI Advantage
+            Layer" provides the technical scaffolding required to scale without friction.</p>
+          <p class="sec-desc" style="margin-top:1.2rem; font-weight:700; color:var(--navy);">Ready to outpace the
+            competition? We provide the roadmap, the technology, and the execution to turn your vision into a
+            market-leading reality.</p>
+
+          <div style="margin-top:2.5rem;">
+            <a href="contact.html" class="btn-navy"
+              style="display:inline-flex;align-items:center;padding:.8rem 1.8rem;background:var(--navy);color:#fff;text-decoration:none;font-family:var(--font);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:all .3s;">
+              <span>Get Your Free Audit</span>
+              <span
+                style="background:#fff;width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:var(--navy);margin-left:1rem;font-size:.8rem;clip-path:polygon(4px 0,100% 0,calc(100% - 4px) 100%,0 100%);">↗</span>
+            </a>
+          </div>
+        </div>
+        <div class="ig-visual reveal-right">
+          <div class="igv-main">
+            <div class="igv-main-inner">
+              <div class="igv-icon">⚡</div>
+              <div class="igv-title">Ecosystem<br><span style="color:#f05a1a">Acceleration</span></div>
+              <div class="igv-sub">Building market-leading<br>realities.</div>
+            </div>
+          </div>
+          <div class="igv-small">
+            <div class="igv-small-num">6x</div>
+            <div class="igv-small-txt">Platforms</div>
+            <div class="igv-small-sub">Frictionless scaling</div>
+          </div>
+          <div class="igv-badge">
+            <div class="igv-badge-num">24/7</div>
+            <div class="igv-badge-txt">AI<br>Optimization</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-about">
+          <a href="home.html" class="ft-logo">
+            <img src="logo.png" alt="Cognisys AI Logo" style="width: 38px; height: 38px; object-fit: contain;" />
+            <div>
+              <div style="font-family:var(--font);font-weight:800;font-size:1.1rem;color:#fff;letter-spacing:.02em;">
+                COGNISYS <span style="color:var(--orange)">AI</span></div>
+              <div
+                style="font-family:var(--body);font-size:.6rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;">
+                Digital Marketing </div>
+            </div>
+          </a>
+          <p class="ft-desc">A Deep-Tech Company Building Intelligent Business Acceleration Platforms. Precision digital
+            marketing powered by our proprietary AI performance layer.</p>
+          <div class="ft-social"><a href="#" class="fsoc">𝕏</a><a href="https://www.linkedin.com/company/cognisys-ai/"
+              target="_blank" class="fsoc">in</a><a
+              href="https://www.instagram.com/cognisysai.media?igsh=MWU1dmE3bGZmanlteg==" target="_blank"
+              class="fsoc">ig</a><a href="https://youtube.com/@aitechfeed?si=zRnFGO1Nfv3mKDiq" target="_blank"
+              class="fsoc">yt</a><a
+              href="https://www.facebook.com/profile.php?id=61588584663365&amp;mibextid=rS40aB7S9Ucbxw6v"
+              target="_blank" class="fsoc">fb</a></div>
+        </div>
+        <div>
+          <div class="ft-col-title">Quick Links</div>
+          <ul class="ft-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-col-title">Services</div>
+          <ul class="ft-links">
+            <li><a href="services.html">YouTube Marketing</a></li>
+            <li><a href="services.html">Google & SEO</a></li>
+            <li><a href="services.html">Facebook Marketing</a></li>
+            <li><a href="services.html">Instagram Reels</a></li>
+            <li><a href="services.html">Meta Ads</a></li>
+            <li><a href="services.html">SEO</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-col-title">Company</div>
+          <ul class="ft-links">
+            <li><a href="contact.html">Free Audit</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+          <div
+            style="margin-top:1.5rem;background:rgba(240,90,26,.1);border-left:3px solid var(--orange);padding:.85rem 1rem;">
+            <div
+              style="font-family:var(--font);font-size:.65rem;font-weight:700;color:var(--orange);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;">
+              Office Hours</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.55);">Mon–Sat · 9AM–7PM IST</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.55);">Hyderabad, Telangana</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="fb-copy">© 2025 <span>Cognisys AI Pvt. Ltd.</span> All rights reserved.</div>
+        <div class="fb-tagline">Built to Scale · Driven by Data · Powered by AI</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Cognisys AI | Digital Marketing Agency Hyderabad</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow+Condensed:wght@600;700;800;900&family=Mulish:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    /* Page banner */
+    .page-banner {
+      background: var(--navy2);
+      padding: 7rem 5% 4rem;
+      margin-top: 76px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 260px solid rgba(240, 90, 26, .07);
+      border-left: 400px solid transparent;
+    }
+
+    .page-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(240, 90, 26, .12) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .4;
+    }
+
+    .pb-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pb-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--font);
+      font-size: .72rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .35);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .pb-breadcrumb a {
+      color: rgba(255, 255, 255, .35);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .pb-breadcrumb a:hover {
+      color: var(--orange);
+    }
+
+    .pb-breadcrumb span {
+      color: var(--orange);
+    }
+
+    .pb-title {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+      line-height: .9;
+    }
+
+    .pb-title span {
+      color: var(--orange);
+    }
+
+    /* About section */
+    #about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5.5rem;
+      align-items: center;
+    }
+
+    .about-imgs {
+      position: relative;
+      height: 520px;
+    }
+
+    .ai-bg-shape {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 48%;
+      height: 90%;
+      background: var(--orange);
+      clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+      opacity: .08;
+    }
+
+    .ai-main {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 80%;
+      height: 75%;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: var(--sh);
+    }
+
+    .ai-small {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 52%;
+      height: 52%;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: var(--sh);
+      border: 5px solid #fff;
+      z-index: 2;
+    }
+
+    .ai-chevron {
+      position: absolute;
+      right: 16%;
+      top: 68%;
+      z-index: 3;
+    }
+
+    .ai-exp-badge {
+      position: absolute;
+      right: -15px;
+      bottom: 30%;
+      background: var(--navy);
+      color: #fff;
+      padding: 1.2rem 1.6rem;
+      z-index: 4;
+      text-align: center;
+      min-width: 130px;
+      box-shadow: 0 10px 30px rgba(26, 45, 66, .3);
+    }
+
+    .aeb-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .aeb-txt {
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .8;
+      margin-top: .2rem;
+    }
+
+    .ac-checks {
+      margin: 1.8rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+
+    .ac-check {
+      display: flex;
+      align-items: flex-start;
+      gap: .9rem;
+    }
+
+    .acc-icon {
+      width: 22px;
+      height: 22px;
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    .acc-icon svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .acc-text {
+      font-size: .92rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .acc-text strong {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .ac-highlight {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      background: var(--orange-pale);
+      border-left: 4px solid var(--orange);
+      padding: 1rem 1.3rem;
+      margin: 1.5rem 0;
+    }
+
+    .ach-label {
+      font-family: var(--font);
+      font-size: .78rem;
+      font-weight: 800;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    .ach-text {
+      font-size: .88rem;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    /* Stats */
+    #stats {
+      background: var(--navy2);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stats-grid::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f05a1a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .stat-item {
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      bottom: 20%;
+      width: 1px;
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .si-icon {
+      font-size: 2.2rem;
+      margin-bottom: .85rem;
+      display: block;
+    }
+
+    .si-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 3.2rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .si-lbl {
+      font-family: var(--font);
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .55);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-top: .4rem;
+    }
+
+    /* Process */
+    #process {
+      background: var(--white);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 4.5rem;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 38px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), rgba(240, 90, 26, .2));
+    }
+
+    .ps-item {
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ps-num {
+      width: 76px;
+      height: 76px;
+      background: var(--navy);
+      color: #fff;
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: all .3s;
+    }
+
+    .ps-item:hover .ps-num {
+      background: var(--orange);
+    }
+
+    .ps-title {
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: .88rem;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: .5rem;
+    }
+
+    .ps-desc {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media(max-width:1100px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-imgs {
+        display: none;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+    }
+
+    @media(max-width:600px) {
+      .process-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="cr"></div>
+
+  <!-- MOBILE MENU -->
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" id="mobClose">✕</button>
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="packages.html">Packages</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo">
+        <img src="logo.png" alt="Cognisys AI Logo" class="logo-icon" />
+        <div class="nav-logo-txt">
+          <div class="nlt-main">COGNISYS <span>AI</span></div>
+          <div class="nlt-sub">Digital Marketing </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li class="active"><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+
+        <a href="contact.html" class="nav-cta">Free Audit →</a>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="container pb-inner">
+      <div class="pb-breadcrumb"><a href="home.html">Home</a> › <span>About</span></div>
+      <div class="pb-title">About <span>Cognisys</span><br>AI Pvt. Ltd.</div>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="mq-track">
+      <div class="mq-item">Deep-Tech Agency</div>
+      <div class="mq-item">AI-Powered Growth</div>
+      <div class="mq-item">200+ Brands Scaled</div>
+      <div class="mq-item">Hyderabad India</div>
+      <div class="mq-item">Zero Upfront Fees</div>
+      <div class="mq-item">15% Success Fee</div>
+      <div class="mq-item">6 Platforms</div>
+      <div class="mq-item">Guaranteed Results</div>
+      <div class="mq-item">Deep-Tech Agency</div>
+      <div class="mq-item">AI-Powered Growth</div>
+      <div class="mq-item">200+ Brands Scaled</div>
+      <div class="mq-item">Hyderabad India</div>
+      <div class="mq-item">Zero Upfront Fees</div>
+      <div class="mq-item">15% Success Fee</div>
+      <div class="mq-item">6 Platforms</div>
+      <div class="mq-item">Guaranteed Results</div>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="sec-pad container">
+      <div class="dot-bg-right"></div>
+      <div class="about-grid">
+        <div class="about-imgs reveal-left">
+          <div class="ai-bg-shape"></div>
+          <div class="ai-main">
+            <div
+              style="width:100%;height:100%;background:linear-gradient(135deg,#243554 0%,#1a2d42 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+              <div
+                style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:rgba(240,90,26,.08);border-radius:50%;">
+              </div>
+              <div style="position:relative;z-index:1;text-align:center;padding:2rem;">
+                <div style="font-size:4rem;margin-bottom:1rem;">🚀</div>
+                <div
+                  style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;color:#fff;text-transform:uppercase;letter-spacing:.03em;">
+                  Intelligent<br><span style="color:#f05a1a">Business Growth</span></div>
+                <div
+                  style="margin-top:1.2rem;font-family:'Mulish',sans-serif;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.7;">
+                  AI-Powered Strategy · Guaranteed Reach<br>Deep-Tech Precision Marketing</div>
+              </div>
+            </div>
+          </div>
+          <div class="ai-small">
+            <div
+              style="width:100%;height:100%;background:var(--orange);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;">
+              <div
+                style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.5rem;color:#fff;line-height:1;">
+                200+</div>
+              <div
+                style="font-family:'Mulish',sans-serif;font-size:.7rem;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.1em;margin:.4rem 0 .8rem;">
+                Brands Scaled</div>
+              <div style="width:36px;height:2px;background:rgba(255,255,255,.4);margin-bottom:.8rem;"></div>
+              <div style="font-family:'Mulish',sans-serif;font-size:.8rem;color:rgba(255,255,255,.8);">Across 12
+                Industry Verticals</div>
+            </div>
+          </div>
+          <div class="ai-chevron">
+            <svg width="80" height="55" viewBox="0 0 80 55" fill="none">
+              <path d="M0 0 L40 28 L80 0" stroke="#f05a1a" stroke-width="5" fill="none" />
+              <path d="M0 14 L40 42 L80 14" stroke="#f05a1a" stroke-width="5" fill="none" opacity="0.5" />
+              <path d="M0 28 L40 56 L80 28" stroke="#1a2d42" stroke-width="5" fill="none" opacity="0.4" />
+            </svg>
+          </div>
+          <div class="ai-exp-badge">
+            <div class="aeb-num">340%</div>
+            <div class="aeb-txt">Avg Traffic<br>Growth</div>
+          </div>
+        </div>
+
+        <div class="about-content reveal-right">
+          <div class="sec-tag">About Cognisys AI</div>
+          <h2 class="sec-title">We Do <span class="or">Smart</span> Thorough<br>Digital Marketing.</h2>
+          <p class="sec-desc">Cognisys AI Pvt. Ltd. is a deep-tech digital marketing agency based in Hyderabad. We build
+            intelligent business acceleration platforms powered by our proprietary AI performance layer — delivering
+            precision digital marketing with zero upfront risk.</p>
+          <div class="ac-checks">
+            <div class="ac-check">
+              <div class="acc-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div>
+              <div class="acc-text"><strong>AI-Powered Performance Layer</strong> — Our proprietary AI system
+                accelerates testing, predicts trends, and automates decisions beyond human capacity.</div>
+            </div>
+            <div class="ac-check">
+              <div class="acc-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div>
+              <div class="acc-text"><strong>Guaranteed Reach on Every Package</strong> — Minimum view counts on
+                Instagram & YouTube per Reel, every month, without fail.</div>
+            </div>
+            <div class="ac-check">
+              <div class="acc-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div>
+              <div class="acc-text"><strong>6 Platforms Under One Roof</strong> — YouTube, Google, Facebook, Instagram,
+                Meta Ads & SEO managed by certified specialists.</div>
+            </div>
+          </div>
+          <div class="ac-highlight">
+            <span class="ach-label">₹0 Upfront:</span>
+            <span class="ach-text">We operate on a 15% Enrollment Success Fee — payable only after your client
+              registrations are finalized. Zero financial risk to you.</span>
+          </div>
+          <a href="services.html" class="btn-navy"><span>Explore Services</span><span class="arr-box">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><span class="si-icon">🏆</span>
+        <div class="si-num" data-target="200">0</div>
+        <div class="si-lbl">Brands Scaled</div>
+      </div>
+      <div class="stat-item reveal d1"><span class="si-icon">📈</span>
+        <div class="si-num" data-target="340">0</div>
+        <div class="si-lbl">Avg Traffic Growth %</div>
+      </div>
+      <div class="stat-item reveal d2"><span class="si-icon">🎯</span>
+        <div class="si-num" data-target="98">0</div>
+        <div class="si-lbl">Client Retention %</div>
+      </div>
+      <div class="stat-item reveal d3"><span class="si-icon">🚀</span>
+        <div class="si-num" data-target="280">0</div>
+        <div class="si-lbl">Campaigns Launched</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="sec-pad container">
+      <div style="text-align:center;max-width:600px;margin:0 auto 1rem;" class="reveal">
+        <div class="sec-tag" style="justify-content:center;">How We Work</div>
+        <h2 class="sec-title">From Sign-Up to <span class="or">Scale-Up</span></h2>
+      </div>
+      <div class="process-steps">
+        <div class="ps-item reveal d1">
+          <div class="ps-num">01</div>
+          <div class="ps-title">Discovery Call</div>
+          <div class="ps-desc">Free 30-min audit of your digital presence, goals & competitor landscape.</div>
+        </div>
+        <div class="ps-item reveal d2">
+          <div class="ps-num">02</div>
+          <div class="ps-title">Strategy Blueprint</div>
+          <div class="ps-desc">Custom growth roadmap built for your industry, audience & platform mix.</div>
+        </div>
+        <div class="ps-item reveal d3">
+          <div class="ps-num">03</div>
+          <div class="ps-title">Campaign Launch</div>
+          <div class="ps-desc">Creative production, ad deployment & content calendar execution begins.</div>
+        </div>
+        <div class="ps-item reveal d4">
+          <div class="ps-num">04</div>
+          <div class="ps-title">AI Optimization</div>
+          <div class="ps-desc">Our proprietary AI loop scales winners, cuts losers & predicts next moves.</div>
+        </div>
+        <div class="ps-item reveal d5">
+          <div class="ps-num">05</div>
+          <div class="ps-title">Review & Scale</div>
+          <div class="ps-desc">Monthly reports, strategy upgrades & budget scaling for sustained growth.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-about">
+          <a href="home.html" class="ft-logo">
+            <img src="logo.png" alt="Cognisys AI Logo" style="width: 38px; height: 38px; object-fit: contain;" />
+            <div>
+              <div style="font-family:var(--font);font-weight:800;font-size:1.1rem;color:#fff;">COGNISYS <span
+                  style="color:var(--orange)">AI</span></div>
+              <div
+                style="font-family:var(--body);font-size:.6rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;">
+                Digital Marketing</div>
+            </div>
+          </a>
+          <p class="ft-desc">A Deep-Tech Company Building Intelligent Business Acceleration Platforms. Precision digital
+            marketing powered by our proprietary AI performance layer.</p>
+          <div class="ft-social"><a href="#" class="fsoc">𝕏</a><a href="https://www.linkedin.com/company/cognisys-ai/"
+              target="_blank" class="fsoc">in</a><a
+              href="https://www.instagram.com/cognisysai.media?igsh=MWU1dmE3bGZmanlteg==" target="_blank"
+              class="fsoc">ig</a><a href="https://youtube.com/@aitechfeed?si=zRnFGO1Nfv3mKDiq" target="_blank"
+              class="fsoc">yt</a><a
+              href="https://www.facebook.com/profile.php?id=61588584663365&amp;mibextid=rS40aB7S9Ucbxw6v"
+              target="_blank" class="fsoc">fb</a></div>
+        </div>
+        <div>
+          <div class="ft-col-title">Quick Links</div>
+          <ul class="ft-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-col-title">Services</div>
+          <ul class="ft-links">
+            <li><a href="services.html#svc-youtube">YouTube Marketing</a></li>
+            <li><a href="services.html#svc-google">Google & SEO</a></li>
+            <li><a href="services.html#svc-facebook">Facebook Marketing</a></li>
+            <li><a href="services.html#svc-instagram">Instagram Reels</a></li>
+            <li><a href="services.html#svc-meta">Meta Ads</a></li>
+            <li><a href="services.html#svc-seo">SEO</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-col-title">Company</div>
+          <ul class="ft-links">
+            <li><a href="contact.html">Free Audit</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+          <div
+            style="margin-top:1.5rem;background:rgba(240,90,26,.1);border-left:3px solid var(--orange);padding:.85rem 1rem;">
+            <div
+              style="font-family:var(--font);font-size:.65rem;font-weight:700;color:var(--orange);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;">
+              Office Hours</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.55);">Mon–Sat · 9AM–7PM IST</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.55);">Hyderabad, Telangana</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="fb-copy">© 2025 <span>Cognisys AI Pvt. Ltd.</span> All rights reserved.</div>
+        <div class="fb-tagline">Built to Scale · Driven by Data · Powered by AI</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+
+</html>

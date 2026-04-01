@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — Cognisys AI | 6 Platform Digital Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow+Condensed:wght@600;700;800;900&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.page-banner{background:var(--navy2);padding:7rem 5% 4rem;margin-top:76px;position:relative;overflow:hidden;}
+.page-banner::before{content:'';position:absolute;top:0;right:0;width:0;height:0;border-top:260px solid rgba(240,90,26,.07);border-left:400px solid transparent;}
+.page-banner::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(240,90,26,.12) 1px,transparent 1px);background-size:28px 28px;opacity:.4;}
+.pb-inner{position:relative;z-index:1;}
+.pb-breadcrumb{display:flex;align-items:center;gap:.6rem;font-family:var(--font);font-size:.72rem;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.2rem;}
+.pb-breadcrumb a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;}
+.pb-breadcrumb a:hover{color:var(--orange);}
+.pb-breadcrumb span{color:var(--orange);}
+.pb-title{font-family:var(--display);font-weight:900;font-size:clamp(2.8rem,6vw,5rem);color:#fff;text-transform:uppercase;letter-spacing:-.01em;line-height:.9;}
+.pb-title span{color:var(--orange);}
+
+/* Services */
+#services{background:var(--bg);}
+.services-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem;}
+.sh-right{font-size:.93rem;color:var(--muted);line-height:1.85;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;}
+.svc-card {
+  background: var(--navy2);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.svc-card * {
+  color: #fff;
+  z-index: 2;
+  position: relative;
+}
+.svc-card .svc-desc {
+  color: rgba(255, 255, 255, 0.6);
+}
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--orange), #ff8a00);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 3;
+}
+.svc-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 100% 100%, rgba(240, 90, 26, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+.svc-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(240, 90, 26, 0.1);
+  border-color: rgba(240, 90, 26, 0.3);
+}
+.svc-card:hover::before {
+  transform: scaleX(1);
+}
+.svc-card:hover::after {
+  opacity: 1;
+}
+.svc-icon-wrap {
+  width: 70px;
+  height: 70px;
+  background: rgba(240, 90, 26, 0.1);
+  box-shadow: inset 0 0 20px rgba(240, 90, 26, 0.05);
+  border: 1px solid rgba(240, 90, 26, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: var(--orange);
+}
+.svc-card:hover .svc-icon-wrap {
+  background: var(--orange);
+  color: #fff;
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 30px rgba(240, 90, 26, 0.4);
+}
+.svc-icon-wrap svg {
+  color: inherit;
+  width: 32px;
+  height: 32px;
+  transition: color 0.3s;
+}
+.svc-name {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.svc-desc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.svc-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.stag {
+  font-family: var(--font);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--orange) !important;
+  background: rgba(240, 90, 26, 0.1);
+  border: 1px solid rgba(240, 90, 26, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+.svc-card:hover .stag {
+  background: var(--orange);
+  color: #fff !important;
+  border-color: var(--orange);
+}
+.svc-num {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 4.5rem;
+  color: rgba(255, 255, 255, 0.03) !important;
+  line-height: 1;
+  transition: all 0.5s;
+  z-index: 1;
+}
+.svc-card:hover .svc-num {
+  color: rgba(240, 90, 26, 0.1) !important;
+  transform: scale(1.1);
+}
+
+/* Testimonials */
+#testis{background:var(--navy2);position:relative;overflow:hidden;}
+.testis-deco{position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:rgba(240,90,26,.06);clip-path:polygon(0 0,100% 0,100% 100%);}
+.testis-deco2{position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;background:rgba(240,90,26,.04);clip-path:polygon(0 0,0 100%,100% 100%);}
+.testis-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:3.5rem;}
+.th-right{font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;}
+#testis .sec-title{color:#fff;}
+.testis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;}
+.t-card {
+  background: #f8f9fa;
+  border: 1px solid rgba(240, 90, 26, 0.15);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  padding: 2.2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.t-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--orange), #ff8a00);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 3;
+}
+.t-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 100% 100%, rgba(240, 90, 26, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+.t-card > * {
+  position: relative;
+  z-index: 2;
+}
+.t-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), 0 0 40px rgba(240, 90, 26, 0.1);
+  border-color: rgba(240, 90, 26, 0.3);
+}
+.t-card:hover::before {
+  transform: scaleX(1);
+}
+.t-card:hover::after {
+  opacity: 1;
+}
+.t-card.featured {
+  border-color: rgba(240, 90, 26, 0.5);
+  background: linear-gradient(180deg, #f8f9fa 0%, #fff2ea 100%);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 0 30px rgba(240, 90, 26, 0.08);
+}
+.t-card.featured::before {
+  transform: scaleX(1);
+}
+.t-card.featured::after {
+  opacity: 0.5;
+}
+.t-card.featured:hover::after {
+  opacity: 1;
+}
+.tc-quote-icon{font-family:var(--display);font-size:5rem;font-weight:900;color:var(--orange);opacity:.15;line-height:.7;margin-bottom:.5rem;}
+.tc-stars{color:var(--orange);font-size:.78rem;letter-spacing:2px;margin-bottom:.85rem;}
+.tc-q{font-size:.88rem;color:#222;line-height:1.8;font-style:italic;margin-bottom:1.8rem;}
+.tc-div{height:1px;background:rgba(0,0,0,.08);margin-bottom:1.4rem;}
+.tc-auth{display:flex;align-items:center;gap:.85rem;}
+.tc-av{width:46px;height:46px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);color:#fff;}
+.tc-name{font-family:var(--font);font-weight:700;font-size:.86rem;color:#000;}
+.tc-role{font-size:.7rem;color:#444;}
+.tc-badge{margin-left:auto;font-family:var(--font);font-size:.6rem;font-weight:700;color:var(--orange);border:1px solid rgba(240,90,26,.3);padding:.15rem .55rem;letter-spacing:.06em;text-transform:uppercase;}
+
+@media(max-width:1100px){.services-header{grid-template-columns:1fr;}.services-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){.testis-header{grid-template-columns:1fr;}.testis-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="cr"></div>
+
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="home.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="packages.html">Packages</a><a href="contact.html">Contact</a>
+</div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="home.html" class="nav-logo">
+      <img src="logo.png" alt="Cognisys AI Logo" class="logo-icon" />
+      <div class="nav-logo-txt"><div class="nlt-main">COGNISYS <span>AI</span></div><div class="nlt-sub">Digital Marketing</div></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li class="active"><a href="services.html">Services</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right"><a href="contact.html" class="nav-cta">Free Audit →</a></div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-banner">
+  <div class="container pb-inner">
+    <div class="pb-breadcrumb"><a href="home.html">Home</a> › <span>Services</span></div>
+    <div class="pb-title">6 Platforms.<br>One <span>Growth Engine.</span></div>
+  </div>
+</div>
+
+<div class="marquee-wrap">
+  <div class="mq-track">
+    <div class="mq-item">YouTube Marketing</div><div class="mq-item">Google Ads & SEO</div><div class="mq-item">Facebook Ecosystem</div><div class="mq-item">Instagram Reels</div><div class="mq-item">Meta Campaigns</div><div class="mq-item">AI Performance Layer</div><div class="mq-item">Zero Upfront Fees</div><div class="mq-item">Results-Based Model</div>
+    <div class="mq-item">YouTube Marketing</div><div class="mq-item">Google Ads & SEO</div><div class="mq-item">Facebook Ecosystem</div><div class="mq-item">Instagram Reels</div><div class="mq-item">Meta Campaigns</div><div class="mq-item">AI Performance Layer</div><div class="mq-item">Zero Upfront Fees</div><div class="mq-item">Results-Based Model</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="sec-pad container">
+    <div class="dot-bg-left"></div>
+    <div class="services-header">
+      <div class="reveal"><div class="sec-tag">Our Services</div><h2 class="sec-title">6 Platforms.<br>One <span class="or">Growth Engine.</span></h2></div>
+      <div class="sh-right reveal d2">All platforms managed by certified specialists — deep expertise, dedicated creative teams, and guaranteed results powered by our proprietary AI layer working as a unified growth engine for your brand.</div>
+    </div>
+    <div class="services-grid">
+      <div id="svc-youtube" class="svc-card reveal" onclick="window.location.href='contact.html'" style="scroll-margin-top: 120px;"><div class="svc-num">01</div><div class="svc-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"/></svg></div><div class="svc-name">YouTube Marketing</div><div class="svc-desc">High-end Video Production, Shorts & Long-form content, Channel Management & Video SEO for maximum organic reach and subscriber growth.</div><div class="svc-tags"><span class="stag">Video Production</span><span class="stag">Shorts</span><span class="stag">Channel SEO</span></div></div>
+      <div id="svc-google" class="svc-card reveal d1" onclick="window.location.href='contact.html'" style="scroll-margin-top: 120px;"><div class="svc-num">02</div><div class="svc-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12.24 10.285V14.4h6.806c-0.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891 0.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-0.788-0.085-1.39-0.189-1.989H12.24z"/></svg></div><div class="svc-name">Google & SEO</div><div class="svc-desc">Search Dominance via PPC & Keyword Ranking, Technical SEO, Local SEO & Google Business Profile Optimization. Own the SERP.</div><div class="svc-tags"><span class="stag">PPC</span><span class="stag">Technical SEO</span><span class="stag">Local SEO</span></div></div>
+      <div id="svc-facebook" class="svc-card reveal d2" onclick="window.location.href='contact.html'" style="scroll-margin-top: 120px;"><div class="svc-num">03</div><div class="svc-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></div><div class="svc-name">Facebook Marketing</div><div class="svc-desc">Complete Page Ecosystem, Static & Video post management, Marketplace & Product Catalog Integration with Lead Gen Ads.</div><div class="svc-tags"><span class="stag">Page Mgmt</span><span class="stag">Lead Gen</span><span class="stag">Marketplace</span></div></div>
+      <div id="svc-instagram" class="svc-card reveal" onclick="window.location.href='contact.html'" style="scroll-margin-top: 120px;"><div class="svc-num">04</div><div class="svc-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div><div class="svc-name">Instagram Reels</div><div class="svc-desc">Reel Production with Scripting, Shooting & Editing. Visual Storytelling, Aesthetic Grid, Community & Influencer management at scale.</div><div class="svc-tags"><span class="stag">Reel Production</span><span class="stag">Stories</span><span class="stag">Influencer</span></div></div>
+      <div id="svc-meta" class="svc-card reveal d1" onclick="window.location.href='contact.html'" style="scroll-margin-top: 120px;"><div class="svc-num">05</div><div class="svc-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M23.111 8.318A9.785 9.785 0 0 0 13.882 1c-1.393 0-2.738.293-3.957.818l6.837 8.011a3.02 3.02 0 0 1 0 4.103l-6.81 7.981c1.218.528 2.564.823 3.96.823 6.947 0 11.236-7.1 8.2-14.418zM10.117 1.84c-5.59-1.89-10.742 2.62-9.67 8.441.536 2.915 2.502 5.215 5.518 6.518l5.441-6.376a3.02 3.02 0 0 0 0-4.103zM3.475 19.349c2.322 1.328 5.166 1.8 7.399.167L5.056 12.06c-1.632 1.914-2.483 4.316-1.581 7.289z"/></svg></div><div class="svc-name">Meta Ads</div><div class="svc-desc">High-converting Ad Creatives, Campaign Scaling, Budget & Pixel Optimization, Custom & Lookalike Audience Retargeting.</div><div class="svc-tags"><span class="stag">Ad Creatives</span><span class="stag">Retargeting</span><span class="stag">Pixel Setup</span></div></div>
+      <div id="svc-seo" class="svc-card reveal d2" onclick="window.location.href='contact.html'" style="scroll-margin-top: 120px;"><div class="svc-num">06</div><div class="svc-icon-wrap"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div><div class="svc-name">SEO</div><div class="svc-desc">Organic Growth, High-intent Keyword Ranking, Technical Mastery — Site Speed, Backlinks, Schema Markup & Monthly Reports.</div><div class="svc-tags"><span class="stag">Organic Growth</span><span class="stag">Backlinks</span><span class="stag">Schema</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="testis">
+  <div class="sec-pad container">
+    <div class="testis-deco"></div><div class="testis-deco2"></div>
+    <div class="testis-header">
+      <div class="reveal"><div class="sec-tag">Client Results</div><h2 class="sec-title">What Our <span class="or">Clients Say</span></h2></div>
+      <div class="th-right reveal d2">Real results from real brands. Every testimonial below represents a business that trusted us with zero upfront — and got measurable, scalable growth in return.</div>
+    </div>
+    <div class="testis-grid">
+      <div class="t-card featured reveal"><div class="tc-quote-icon">"</div><div class="tc-stars">★★★★★</div><p class="tc-q">"Cognisys AI transformed our Instagram from 3,000 to 75,000 followers in 8 months. Pure organic growth — no paid followers. Our leads doubled. Best investment we've ever made."</p><div class="tc-div"></div><div class="tc-auth"><div class="tc-av">👩‍💼</div><div><div class="tc-name">Sneha Rathore</div><div class="tc-role">Founder · EduSpark Academy</div></div><span class="tc-badge">Instagram</span></div></div>
+      <div class="t-card reveal d1"><div class="tc-quote-icon">"</div><div class="tc-stars">★★★★★</div><p class="tc-q">"The QUANTUM package delivered exactly what was promised — 20k+ views per Reel. Our Google ranking moved from page 4 to page 1 in just 3 months. The ROI is absolutely undeniable."</p><div class="tc-div"></div><div class="tc-auth"><div class="tc-av">👨‍💼</div><div><div class="tc-name">Arjun Krishnamurthy</div><div class="tc-role">CEO · TechLearn Hub</div></div><span class="tc-badge">Google</span></div></div>
+      <div class="t-card reveal d2"><div class="tc-quote-icon">"</div><div class="tc-stars">★★★★★</div><p class="tc-q">"Zero upfront fees sounds too good to be true — but Cognisys AI delivered. Their Meta ad campaigns cut our cost-per-registration by 45%. Their AI retargeting system is genuinely next-level."</p><div class="tc-div"></div><div class="tc-auth"><div class="tc-av">👩‍🏫</div><div><div class="tc-name">Priya Venkatesh</div><div class="tc-role">Director · Pinnacle Institute</div></div><span class="tc-badge">Meta Ads</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="ft-about">
+        <a href="home.html" class="ft-logo"><img src="logo.png" alt="Cognisys AI Logo" style="width: 38px; height: 38px; object-fit: contain;" /><div><div style="font-family:var(--font);font-weight:800;font-size:1.1rem;color:#fff;">COGNISYS <span style="color:var(--orange)">AI</span></div><div style="font-family:var(--body);font-size:.6rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;">Digital Marketing Agency</div></div></a>
+        <p class="ft-desc">A Deep-Tech Company Building Intelligent Business Acceleration Platforms. Precision digital marketing powered by our proprietary AI performance layer.</p>
+        <div class="ft-social"><a href="#" class="fsoc">𝕏</a><a href="https://www.linkedin.com/company/cognisys-ai/" target="_blank" class="fsoc">in</a><a href="https://www.instagram.com/cognisysai.media?igsh=MWU1dmE3bGZmanlteg==" target="_blank" class="fsoc">ig</a><a href="https://youtube.com/@aitechfeed?si=zRnFGO1Nfv3mKDiq" target="_blank" class="fsoc">yt</a><a href="https://www.facebook.com/profile.php?id=61588584663365&amp;mibextid=rS40aB7S9Ucbxw6v" target="_blank" class="fsoc">fb</a></div>
+      </div>
+      <div><div class="ft-col-title">Quick Links</div><ul class="ft-links"><li><a href="home.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="packages.html">Packages</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="ft-col-title">Services</div><ul class="ft-links"><li><a href="services.html#svc-youtube">YouTube Marketing</a></li><li><a href="services.html#svc-google">Google & SEO</a></li><li><a href="services.html#svc-facebook">Facebook Marketing</a></li><li><a href="services.html#svc-instagram">Instagram Reels</a></li><li><a href="services.html#svc-meta">Meta Ads</a></li><li><a href="services.html#svc-seo">SEO</a></li></ul></div>
+      <div><div class="ft-col-title">Company</div><ul class="ft-links"><li><a href="contact.html">Free Audit</a></li><li><a href="#">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="#">Privacy Policy</a></li></ul><div style="margin-top:1.5rem;background:rgba(240,90,26,.1);border-left:3px solid var(--orange);padding:.85rem 1rem;"><div style="font-family:var(--font);font-size:.65rem;font-weight:700;color:var(--orange);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;">Office Hours</div><div style="font-size:.8rem;color:rgba(255,255,255,.55);">Mon–Sat · 9AM–7PM IST</div><div style="font-size:.8rem;color:rgba(255,255,255,.55);">Hyderabad, Telangana</div></div></div>
+    </div>
+    <div class="footer-bottom"><div class="fb-copy">© 2025 <span>Cognisys AI Pvt. Ltd.</span> All rights reserved.</div><div class="fb-tagline">Built to Scale · Driven by Data · Powered by AI</div></div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
+

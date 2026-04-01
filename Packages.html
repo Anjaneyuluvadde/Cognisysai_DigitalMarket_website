@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages — Cognisys AI | Alpha, Quantum & Titan Plans</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow+Condensed:wght@600;700;800;900&family=Mulish:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .page-banner {
+      background: var(--navy2);
+      padding: 7rem 5% 4rem;
+      margin-top: 76px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 260px solid rgba(240, 90, 26, .07);
+      border-left: 400px solid transparent;
+    }
+
+    .page-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(240, 90, 26, .12) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .4;
+    }
+
+    .pb-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pb-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--font);
+      font-size: .72rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .35);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .pb-breadcrumb a {
+      color: rgba(255, 255, 255, .35);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .pb-breadcrumb a:hover {
+      color: var(--orange);
+    }
+
+    .pb-breadcrumb span {
+      color: var(--orange);
+    }
+
+    .pb-title {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+      line-height: .9;
+    }
+
+    .pb-title span {
+      color: var(--orange);
+    }
+
+    /* Packages */
+    #packages {
+      background: var(--bg);
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .pkg-card {
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+      transition: all .35s;
+    }
+
+    .pkg-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--sh);
+    }
+
+    .pkg-card.featured {
+      background: var(--navy2);
+      transform: scale(1.03);
+    }
+
+    .pkg-card.featured:hover {
+      transform: scale(1.03) translateY(-6px);
+    }
+
+    .pkg-top {
+      background: var(--orange);
+      padding: .55rem 2rem;
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: .65rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+      display: none;
+    }
+
+    .pkg-card.featured .pkg-top {
+      display: block;
+    }
+
+    .pkg-head {
+      padding: 2.5rem 2.5rem 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, .06);
+    }
+
+    .pkg-card.featured .pkg-head {
+      border-color: rgba(255, 255, 255, .07);
+    }
+
+    .pkg-tier {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--navy);
+    }
+
+    .pkg-card.featured .pkg-tier {
+      color: #fff;
+    }
+
+    .pkg-sub {
+      font-family: var(--font);
+      font-size: .7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .pkg-card.featured .pkg-sub {
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .pkg-price {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 2.8rem;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .pkg-card.featured .pkg-price {
+      color: var(--orange);
+    }
+
+    .pkg-price sup {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .pkg-price sub {
+      font-size: .85rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .pkg-zero {
+      font-family: var(--font);
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--orange);
+      margin-top: .4rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .pkg-zero::before {
+      content: '';
+      width: 16px;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    .pkg-rows {
+      padding: 1.5rem 2.5rem;
+    }
+
+    .pr {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      padding: .55rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, .05);
+    }
+
+    .pkg-card.featured .pr {
+      border-color: rgba(255, 255, 255, .06);
+    }
+
+    .pr:last-child {
+      border: none;
+    }
+
+    .pr-icon {
+      width: 16px;
+      height: 16px;
+      background: var(--orange);
+      clip-path: polygon(2px 0%, 100% 0%, calc(100% - 2px) 100%, 0% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pr-icon svg {
+      width: 9px;
+      height: 9px;
+    }
+
+    .pr-label {
+      font-size: .82rem;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    .pkg-card.featured .pr-label {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    .pr-val {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: .8rem;
+      color: var(--navy);
+    }
+
+    .pkg-card.featured .pr-val {
+      color: #fff;
+    }
+
+    .pr-val.or {
+      color: var(--orange);
+    }
+
+    .pkg-cta {
+      margin: 0 2.5rem 2.5rem;
+      display: block;
+      text-align: center;
+      padding: .9rem;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: all .3s;
+    }
+
+    .pkg-cta.navy {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .pkg-cta.navy:hover {
+      background: var(--orange);
+    }
+
+    .pkg-cta.orange {
+      background: var(--orange);
+      color: #fff;
+    }
+
+    .pkg-cta.orange:hover {
+      background: var(--orange2);
+    }
+
+    .pkg-cta.outline {
+      border: 2px solid rgba(255, 255, 255, .2);
+      color: #fff;
+    }
+
+    .pkg-cta.outline:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    /* Compare table */
+    #compare {
+      background: var(--bg);
+    }
+
+    .compare-card {
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .15);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      margin: 3rem auto 0;
+      border: 1px solid rgba(0, 0, 0, .05);
+      max-width: 1100px;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .compare-table th {
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      padding: 1.6rem 1.5rem;
+      text-align: center;
+      background: #1a2332;
+      color: #fff;
+    }
+
+    .compare-table th.featured-col {
+      background: var(--orange);
+    }
+
+    .compare-table th:first-child {
+      width: 35%;
+      text-align: left;
+      font-size: .95rem;
+      letter-spacing: .1em;
+    }
+
+    .compare-table th small {
+      display: block;
+      font-weight: 600;
+      font-size: .85rem;
+      opacity: .5;
+      margin-top: .4rem;
+      letter-spacing: .05em;
+    }
+
+    .compare-table th.featured-col small {
+      opacity: .9;
+    }
+
+    .compare-table td {
+      padding: 1.4rem 1.5rem;
+      font-size: .95rem;
+      color: #334155;
+      font-family: var(--font);
+      font-weight: 500;
+      border-bottom: none;
+      text-align: center;
+    }
+
+    .compare-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .compare-table td:first-child {
+      text-align: left;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .compare-table td.check {
+      color: var(--orange);
+      font-weight: 800;
+    }
+
+    .compare-table td.featured-col {
+      background: #fff;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .compare-table tr:nth-child(even) td.featured-col {
+      background: #f8fafc;
+    }
+
+    .compare-table td.featured-col.check {
+      color: #1e293b;
+    }
+
+    @media(max-width:1100px) {
+      .packages-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin: 3rem auto 0;
+      }
+    }
+
+    @media(max-width:600px) {
+      .compare-table {
+        font-size: .75rem;
+      }
+
+      .compare-table th,
+      .compare-table td {
+        padding: .6rem .75rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="cr"></div>
+
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" id="mobClose">✕</button>
+    <a href="home.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a
+      href="packages.html">Packages</a><a href="contact.html">Contact</a>
+  </div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo">
+        <img src="logo.png" alt="Cognisys AI Logo" class="logo-icon" />
+        <div class="nav-logo-txt">
+          <div class="nlt-main">COGNISYS <span>AI</span></div>
+          <div class="nlt-sub">Digital Marketing</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li class="active"><a href="packages.html">Packages</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right"><a href="contact.html" class="nav-cta">Free Audit →</a></div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-banner">
+    <div class="container pb-inner">
+      <div class="pb-breadcrumb"><a href="home.html">Home</a> › <span>Packages</span></div>
+      <div class="pb-title">Choose Your <span>Level.</span><br>Zero Risk.</div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap">
+    <div class="mq-track">
+      <div class="mq-item">Alpha ₹20,000/mo</div>
+      <div class="mq-item">Quantum ₹30,000/mo</div>
+      <div class="mq-item">Titan ₹40,000/mo</div>
+      <div class="mq-item">Zero Upfront</div>
+      <div class="mq-item">15% Success Fee</div>
+      <div class="mq-item">Guaranteed Views</div>
+      <div class="mq-item">AI Performance Layer</div>
+      <div class="mq-item">Results-Based Model</div>
+      <div class="mq-item">Alpha ₹20,000/mo</div>
+      <div class="mq-item">Quantum ₹30,000/mo</div>
+      <div class="mq-item">Titan ₹40,000/mo</div>
+      <div class="mq-item">Zero Upfront</div>
+      <div class="mq-item">15% Success Fee</div>
+      <div class="mq-item">Guaranteed Views</div>
+      <div class="mq-item">AI Performance Layer</div>
+      <div class="mq-item">Results-Based Model</div>
+    </div>
+  </div>
+
+  <section id="packages">
+    <div class="sec-pad container">
+      <div class="dot-bg-right"></div>
+      <div class="reveal" style="text-align:center;max-width:800px;margin:0 auto 3.5rem;">
+        <div class="sec-tag" style="justify-content:center;">Growth Packages</div>
+        <h2 class="sec-title" style="margin-bottom:1rem;">Choose Your <span class="or">Level</span></h2>
+        <div style="font-size:1.05rem;color:var(--muted);line-height:1.85;">We charge for <strong
+            style="color:var(--navy)">results, not effort</strong>. Zero upfront fees — you only pay once we achieve
+          your reach targets via our 15% Enrollment Success Fee model.</div>
+      </div>
+      <div class="packages-grid">
+        <div class="pkg-card reveal">
+          <div class="pkg-top">FOUNDATION</div>
+          <div class="pkg-head">
+            <div class="pkg-tier">Alpha</div>
+            <div class="pkg-sub">Foundation Plan</div>
+            <div class="pkg-price"><sup>₹</sup>20,000<sub>/mo</sub></div>
+            <div class="pkg-zero">Zero Upfront</div>
+          </div>
+          <div class="pkg-rows">
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Static Posts</span><span class="pr-val">10/month</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Reels / Shorts</span><span class="pr-val">5/month</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Instagram Views</span><span class="pr-val">10k+ / Reel</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">YouTube Views</span><span class="pr-val">1k+ / Reel</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Upfront Cost</span><span class="pr-val or">₹0</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Website SEO</span><span class="pr-val">✓ Included</span>
+            </div>
+          </div>
+          <a href="contact.html" class="pkg-cta navy">Get Started →</a>
+        </div>
+        <div class="pkg-card featured reveal d1">
+          <div class="pkg-top">MOST POPULAR</div>
+          <div class="pkg-head">
+            <div class="pkg-tier">Quantum</div>
+            <div class="pkg-sub">Accelerated Plan</div>
+            <div class="pkg-price"><sup>₹</sup>30,000<sub>/mo</sub></div>
+            <div class="pkg-zero">Zero Upfront</div>
+          </div>
+          <div class="pkg-rows">
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Static Posts</span><span class="pr-val">10/month</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Reels / Shorts</span><span class="pr-val">10/month</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Instagram Views</span><span class="pr-val">20k+ / Reel</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">YouTube Views</span><span class="pr-val">2k+ / Reel</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Upfront Cost</span><span class="pr-val or">₹0</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Website SEO</span><span class="pr-val">✓ Included</span>
+            </div>
+          </div>
+          <a href="contact.html" class="pkg-cta orange">Get Started →</a>
+        </div>
+        <div class="pkg-card reveal d2">
+          <div class="pkg-top">DOMINANCE</div>
+          <div class="pkg-head">
+            <div class="pkg-tier">Titan</div>
+            <div class="pkg-sub">Dominance Plan</div>
+            <div class="pkg-price"><sup>₹</sup>40,000<sub>/mo</sub></div>
+            <div class="pkg-zero">Zero Upfront</div>
+          </div>
+          <div class="pkg-rows">
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Static Posts</span><span class="pr-val">10/month</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Reels / Shorts</span><span class="pr-val">20/month</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Instagram Views</span><span class="pr-val">30k+ / Reel</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">YouTube Views</span><span class="pr-val">3k+ / Reel</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Upfront Cost</span><span class="pr-val or">₹0</span>
+            </div>
+            <div class="pr">
+              <div class="pr-icon"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div><span class="pr-label">Website SEO</span><span class="pr-val">✓ Included</span>
+            </div>
+          </div>
+          <a href="contact.html" class="pkg-cta navy">Get Started →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE TABLE -->
+  <section id="compare" style="padding: 5rem 5%;">
+    <div class="sec-pad container">
+      <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 1rem;">
+        <div class="sec-tag" style="justify-content:center;">Full Comparison</div>
+        <h2 class="sec-title">What's Included in <span class="or">Each Plan</span></h2>
+      </div>
+      <div class="compare-card reveal">
+        <div style="overflow-x:auto;">
+          <table class="compare-table" style="min-width: 800px;">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Alpha<br><small>₹20,000/MO</small></th>
+                <th class="featured-col">Quantum<br><small>₹30,000/MO</small></th>
+                <th>Titan<br><small>₹40,000/MO</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Static Posts / Month</td>
+                <td>10</td>
+                <td class="featured-col">10</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>Reels / Shorts per Month</td>
+                <td>5</td>
+                <td class="featured-col">10</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>Guaranteed Instagram Views</td>
+                <td>10k+ / Reel</td>
+                <td class="featured-col">20k+ / Reel</td>
+                <td>30k+ / Reel</td>
+              </tr>
+              <tr>
+                <td>Guaranteed YouTube Views</td>
+                <td>1k+ / Reel</td>
+                <td class="featured-col">2k+ / Reel</td>
+                <td>3k+ / Reel</td>
+              </tr>
+              <tr>
+                <td>Website SEO</td>
+                <td class="check">✓</td>
+                <td class="featured-col check">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Google Business Profile</td>
+                <td class="check">✓</td>
+                <td class="featured-col check">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Meta Ads Management</td>
+                <td>Basic</td>
+                <td class="featured-col">Advanced</td>
+                <td>Full Stack</td>
+              </tr>
+              <tr>
+                <td>AI Performance Layer</td>
+                <td>Basic</td>
+                <td class="featured-col">Full</td>
+                <td>Full+</td>
+              </tr>
+              <tr>
+                <td>Dedicated Account Manager</td>
+                <td>—</td>
+                <td class="featured-col check">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Monthly Strategy Reports</td>
+                <td class="check">✓</td>
+                <td class="featured-col check">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Upfront Fee</td>
+                <td class="check" style="font-size:1rem;">₹0</td>
+                <td class="featured-col check" style="font-size:1rem;">₹0</td>
+                <td class="check" style="font-size:1rem;">₹0</td>
+              </tr>
+              <tr>
+                <td>Success Fee</td>
+                <td>15%</td>
+                <td class="featured-col">15%</td>
+                <td>15%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div
+          style="text-align:center; padding: 2.5rem 1.5rem; background: #fff; border-top: 1px solid rgba(0,0,0,0.05);">
+          <a href="contact.html" class="btn-orange"><span>Book Free Strategy Call</span><span class="arr">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM OFFER SECTION -->
+  <section id="custom-offer" style="padding: 5rem 5%; background: var(--bg); position: relative;">
+    <style>
+      .custom-card-wrapper {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .custom-card {
+        background: #fff;
+        border-radius: 2px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+        position: relative;
+        transition: all .35s;
+        border: 1px solid rgba(0, 0, 0, 0.03);
+      }
+
+      .custom-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--sh);
+      }
+
+      .cc-top-line {
+        height: 8px;
+        background: var(--orange);
+        width: 100%;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+      }
+
+      .cc-ribbon-wrap {
+        position: absolute;
+        top: 1.8rem;
+        left: -0.6rem;
+        z-index: 10;
+        filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.15));
+      }
+
+      .cc-ribbon {
+        background: var(--orange);
+        color: #fff;
+        padding: 0.5rem 1.8rem 0.5rem 1.2rem;
+        font-family: var(--font);
+        font-weight: 800;
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+      }
+
+      .cc-ribbon-tail {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 0.6rem solid #bd410c;
+        border-left: 0.6rem solid transparent;
+      }
+
+      .cc-head {
+        background: var(--navy2);
+        padding: 3rem 2rem 2.5rem;
+        text-align: center;
+        color: #fff;
+      }
+
+      .cc-title {
+        font-family: var(--display);
+        font-weight: 900;
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0em;
+        line-height: 1.1;
+        margin-bottom: 0.6rem;
+        color: #fff;
+      }
+
+      .cc-sub {
+        font-family: var(--font);
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .cc-price-box {
+        padding: 2.2rem 3rem 1.2rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .cc-price-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .cc-price-line {
+        height: 1.5px;
+        width: 40px;
+        background: rgba(240, 90, 26, .6);
+      }
+
+      .cc-price {
+        font-family: var(--font);
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: var(--navy);
+      }
+
+      .cc-price span {
+        color: var(--orange);
+      }
+
+      .cc-price-sub {
+        font-size: 0.95rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      .cc-features {
+        padding: 1.8rem 3.5rem 2.5rem;
+      }
+
+      .cc-feat-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .cc-feat-row:last-child {
+        margin-bottom: 0;
+      }
+
+      .cc-check {
+        width: 20px;
+        height: 20px;
+        background: var(--orange);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .cc-check svg {
+        width: 11px;
+        height: 11px;
+      }
+
+      .cc-feat-text {
+        font-size: 1.05rem;
+        color: var(--navy);
+        font-weight: 500;
+        font-family: var(--font);
+      }
+
+      .cc-foot {
+        background: var(--navy2);
+        padding: 2rem 3rem;
+        text-align: center;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+      }
+
+      .cc-btn {
+        display: inline-block;
+        background: var(--orange);
+        color: #fff;
+        padding: 1.1rem 2rem;
+        font-family: var(--font);
+        font-weight: 800;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        transition: background 0.3s;
+        clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+        border: none;
+        cursor: pointer;
+      }
+
+      .cc-btn:hover {
+        background: var(--orange2);
+      }
+
+      @media(max-width: 600px) {
+        .cc-features {
+          padding: 1.8rem 1.5rem 2.5rem;
+        }
+
+        .cc-title {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+    <div class="container" style="max-width: 1000px;">
+
+      <div class="reveal" style="text-align: center; margin-bottom: 3.5rem;">
+        <h2 class="sec-title" style="margin-bottom: 1.2rem;">Need Something <span class="or">Different?</span></h2>
+        <p style="font-size: 1.1rem; color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto;">
+          We also offer fully customizable growth packages—pricing depends on your specific goals and requirements.<br>
+          <strong style="color: var(--navy); display: inline-block; margin-top: 1rem; font-size: 1.2rem;">Get a Custom
+            Plan Designed for You – Talk to Us Today!</strong>
+        </p>
+      </div>
+
+      <!-- CUSTOM CARD -->
+      <div class="custom-card-wrapper reveal d1">
+        <div class="custom-card">
+          <!-- Orange Top Line -->
+          <div class="cc-top-line"></div>
+
+          <!-- Ribbon -->
+          <div class="cc-ribbon-wrap">
+            <div class="cc-ribbon">Custom</div>
+            <div class="cc-ribbon-tail"></div>
+          </div>
+
+          <!-- Header -->
+          <div class="cc-head">
+            <h3 class="cc-title">Tailored Growth Plan</h3>
+            <p class="cc-sub">Personalized strategy for your unique business goals</p>
+          </div>
+
+          <!-- Pricing Info -->
+          <div class="cc-price-box">
+            <div class="cc-price-row">
+              <div class="cc-price-line"></div>
+              <div class="cc-price">Pricing: <span>Varies</span></div>
+              <div class="cc-price-line"></div>
+            </div>
+            <p class="cc-price-sub">Depends on Custom Package</p>
+          </div>
+
+          <!-- Features List -->
+          <div class="cc-features">
+            <div class="cc-feat-row">
+              <div class="cc-check"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div>
+              <span class="cc-feat-text">Fully Customized Strategy</span>
+            </div>
+            <div class="cc-feat-row">
+              <div class="cc-check"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div>
+              <span class="cc-feat-text">Flexible Content (Posts, Reels, Ads, SEO)</span>
+            </div>
+            <div class="cc-feat-row">
+              <div class="cc-check"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div>
+              <span class="cc-feat-text">Multi-Platform Optimization</span>
+            </div>
+            <div class="cc-feat-row">
+              <div class="cc-check"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div>
+              <span class="cc-feat-text">AI-Powered Marketing</span>
+            </div>
+            <div class="cc-feat-row">
+              <div class="cc-check"><svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div>
+              <span class="cc-feat-text">Dedicated Growth Consultation</span>
+            </div>
+          </div>
+
+          <!-- Footer CTA -->
+          <div class="cc-foot">
+            <a href="contact.html" class="cc-btn">
+              Get Custom Plan ➔
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-about">
+          <a href="home.html" class="ft-logo"><img src="logo.png" alt="Cognisys AI Logo"
+              style="width: 38px; height: 38px; object-fit: contain;" />
+            <div>
+              <div style="font-family:var(--font);font-weight:800;font-size:1.1rem;color:#fff;">COGNISYS <span
+                  style="color:var(--orange)">AI</span></div>
+              <div
+                style="font-family:var(--body);font-size:.6rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;">
+                Digital Marketing</div>
+            </div>
+          </a>
+          <p class="ft-desc">A Deep-Tech Company Building Intelligent Business Acceleration Platforms.</p>
+          <div class="ft-social"><a href="#" class="fsoc">𝕏</a><a href="https://www.linkedin.com/company/cognisys-ai/"
+              target="_blank" class="fsoc">in</a><a
+              href="https://www.instagram.com/cognisysai.media?igsh=MWU1dmE3bGZmanlteg==" target="_blank"
+              class="fsoc">ig</a><a href="https://youtube.com/@aitechfeed?si=zRnFGO1Nfv3mKDiq" target="_blank"
+              class="fsoc">yt</a><a
+              href="https://www.facebook.com/profile.php?id=61588584663365&amp;mibextid=rS40aB7S9Ucbxw6v"
+              target="_blank" class="fsoc">fb</a></div>
+        </div>
+        <div>
+          <div class="ft-col-title">Quick Links</div>
+          <ul class="ft-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-col-title">Services</div>
+          <ul class="ft-links">
+            <li><a href="services.html">YouTube Marketing</a></li>
+            <li><a href="services.html">Google & SEO</a></li>
+            <li><a href="services.html">Facebook Marketing</a></li>
+            <li><a href="services.html">Instagram Reels</a></li>
+            <li><a href="services.html">Meta Ads</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-col-title">Company</div>
+          <ul class="ft-links">
+            <li><a href="contact.html">Free Audit</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+          <div
+            style="margin-top:1.5rem;background:rgba(240,90,26,.1);border-left:3px solid var(--orange);padding:.85rem 1rem;">
+            <div
+              style="font-family:var(--font);font-size:.65rem;font-weight:700;color:var(--orange);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;">
+              Office Hours</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.55);">Mon–Sat · 9AM–7PM IST</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.55);">Hyderabad, Telangana</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="fb-copy">© 2025 <span>Cognisys AI Pvt. Ltd.</span> All rights reserved.</div>
+        <div class="fb-tagline">Built to Scale · Driven by Data · Powered by AI</div>
+      </div>
+    </div>
+  </footer>
+  <script src="shared.js"></script>
+</body>
+
+</html>

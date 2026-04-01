@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Cognisys AI | Book Free Audit Call</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow+Condensed:wght@600;700;800;900&family=Mulish:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .page-banner {
+      background: var(--navy2);
+      padding: 7rem 5% 4rem;
+      margin-top: 76px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 260px solid rgba(240, 90, 26, .07);
+      border-left: 400px solid transparent;
+    }
+
+    .page-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(240, 90, 26, .12) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .4;
+    }
+
+    .pb-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pb-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--font);
+      font-size: .72rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .35);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .pb-breadcrumb a {
+      color: rgba(255, 255, 255, .35);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .pb-breadcrumb a:hover {
+      color: var(--orange);
+    }
+
+    .pb-breadcrumb span {
+      color: var(--orange);
+    }
+
+    .pb-title {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+      line-height: .9;
+    }
+
+    .pb-title span {
+      color: var(--orange);
+    }
+
+    /* Contact */
+    #contact {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .cl-info {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cli-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+      padding: 1.2rem;
+      border: 1px solid var(--border);
+      transition: all .3s;
+    }
+
+    .cli-row:hover {
+      border-color: var(--orange);
+      transform: translateX(4px);
+    }
+
+    .cli-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--orange);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    }
+
+    .cli-lbl {
+      font-family: var(--font);
+      font-size: .65rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .cli-val {
+      font-size: .9rem;
+      color: var(--navy);
+      font-weight: 600;
+      margin-top: .1rem;
+    }
+
+    .checklist {
+      margin-top: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    .cl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+    }
+
+    .cl-item::before {
+      content: '✓';
+      min-width: 22px;
+      height: 22px;
+      background: var(--orange);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    .cl-item span {
+      font-size: .88rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .form-card {
+      background: var(--navy2);
+      padding: 2.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--orange), var(--orange2));
+    }
+
+    .fc-title {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      margin-bottom: .4rem;
+      margin-top: .5rem;
+    }
+
+    .fc-sub {
+      font-size: .84rem;
+      color: rgba(255, 255, 255, .5);
+      margin-bottom: 2rem;
+    }
+
+    .f-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .fg {
+      display: flex;
+      flex-direction: column;
+      gap: .38rem;
+      margin-bottom: 1rem;
+    }
+
+    .fg label {
+      font-family: var(--font);
+      font-size: .65rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .5);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .08);
+      padding: .78rem 1rem;
+      color: #fff;
+      font-family: var(--body);
+      font-size: .88rem;
+      outline: none;
+      transition: all .2s;
+      resize: none;
+    }
+
+    .fg input:focus,
+    .fg select:focus,
+    .fg textarea:focus {
+      border-color: rgba(240, 90, 26, .5);
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .fg input::placeholder,
+    .fg textarea::placeholder {
+      color: rgba(255, 255, 255, .3);
+    }
+
+    .fg select option {
+      background: var(--navy2);
+    }
+
+    .fsub {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: .88rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      transition: all .3s;
+      margin-top: .5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .8rem;
+    }
+
+    .fsub:hover {
+      background: var(--orange2);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(240, 90, 26, .4);
+    }
+
+    #fMsg {
+      margin-top: .8rem;
+      font-size: .82rem;
+      text-align: center;
+      color: var(--orange);
+    }
+
+    @media(max-width:1100px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:600px) {
+      .f-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="cr"></div>
+
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" id="mobClose">✕</button>
+    <a href="home.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a
+      href="packages.html">Packages</a><a href="contact.html">Contact</a>
+  </div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo">
+        <img src="logo.png" alt="Cognisys AI Logo" class="logo-icon" />
+        <div class="nav-logo-txt">
+          <div class="nlt-main">COGNISYS <span>AI</span></div>
+          <div class="nlt-sub">Digital Marketing</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li class="active"><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right"><a href="contact.html" class="nav-cta">Free Audit →</a></div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-banner">
+    <div class="container pb-inner">
+      <div class="pb-breadcrumb"><a href="home.html">Home</a> › <span>Contact</span></div>
+      <div class="pb-title">Book Your<br><span>Free Audit</span> Call.</div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap">
+    <div class="mq-track">
+      <div class="mq-item">Free 30-Min Audit</div>
+      <div class="mq-item">Zero Commitment</div>
+      <div class="mq-item">Competitor Analysis</div>
+      <div class="mq-item">Custom Roadmap</div>
+      <div class="mq-item">ROI Estimate</div>
+      <div class="mq-item">Response in 24hrs</div>
+      <div class="mq-item">Hyderabad India</div>
+      <div class="mq-item">hr@cognisysai.com</div>
+      <div class="mq-item">Free 30-Min Audit</div>
+      <div class="mq-item">Zero Commitment</div>
+      <div class="mq-item">Competitor Analysis</div>
+      <div class="mq-item">Custom Roadmap</div>
+      <div class="mq-item">ROI Estimate</div>
+      <div class="mq-item">Response in 24hrs</div>
+      <div class="mq-item">Hyderabad India</div>
+      <div class="mq-item">hr@cognisysai.com</div>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="sec-pad container">
+      <div class="dot-bg-right"></div>
+      <div class="contact-grid">
+        <div class="reveal-left">
+          <div class="sec-tag">Get In Touch</div>
+          <h2 class="sec-title">Book Your<br><span class="or">Free Audit</span> Call</h2>
+          <p class="sec-desc">In 30 minutes, we'll audit your digital presence, map your competitors, and show you
+            exactly how Cognisys AI can scale your brand — zero commitment, zero cost.</p>
+          <div class="cl-info">
+            <div class="cli-row">
+              <div class="cli-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg></div>
+              <div>
+                <div class="cli-lbl">Email</div>
+                <div class="cli-val">Media.cognisysAI.com</div>
+              </div>
+            </div>
+            <div class="cli-row">
+              <div class="cli-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg></div>
+              <div>
+                <div class="cli-lbl">Phone</div>
+                <div class="cli-val">9618145540</div>
+              </div>
+            </div>
+            <div class="cli-row">
+              <div class="cli-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg></div>
+              <div>
+                <div class="cli-lbl">Location</div>
+                <div class="cli-val" style="line-height:1.5; font-size:0.88rem;">
+                  Cognisys AI HQ<br>
+                  T-Hub Phase 2, Raidurgam Panmaktha, Knowledge City,<br>
+                  Hyderabad, Telangana 500081
+                </div>
+              </div>
+            </div>
+            <div class="cli-row">
+              <div class="cli-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg></div>
+              <div>
+                <div class="cli-lbl">Hours</div>
+                <div class="cli-val">Mon–Sat · 9AM–7PM IST</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:2rem;">
+            <div
+              style="font-family:var(--font);font-size:.72rem;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem;">
+              What you get in the free call:</div>
+            <div class="checklist">
+              <div class="cl-item"><span>Full audit of your current digital presence</span></div>
+              <div class="cl-item"><span>Competitor analysis across your top 3 rivals</span></div>
+              <div class="cl-item"><span>Custom growth roadmap for your business</span></div>
+              <div class="cl-item"><span>Package recommendation with ROI estimate</span></div>
+              <div class="cl-item"><span>Zero commitment — completely free</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal-right">
+          <div class="form-card">
+            <div class="fc-title">Request a Callback</div>
+            <div class="fc-sub">Fill out the form below and our growth expert will contact you within 24 hours.</div>
+            <div class="f-row">
+              <div class="fg">
+                <label>First Name</label>
+                <input type="text" placeholder="John" />
+              </div>
+              <div class="fg">
+                <label>Last Name</label>
+                <input type="text" placeholder="Doe" />
+              </div>
+            </div>
+            <div class="fg">
+              <label>Work Email</label>
+              <input type="email" id="em" placeholder="john@company.com" />
+            </div>
+            <div class="fg">
+              <label>Phone Number</label>
+              <input type="text" placeholder="+91 98765 43210" />
+            </div>
+            <div class="fg">
+              <label>Interested In</label>
+              <select>
+                <option value="" disabled selected>Select a Service</option>
+                <option value="seo">SEO & Google Ads</option>
+                <option value="social">Social Media Marketing</option>
+                <option value="youtube">YouTube Marketing</option>
+                <option value="meta">Meta Ads</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Message</label>
+              <textarea rows="4" placeholder="Tell us about your project..."></textarea>
+            </div>
+            <button type="button" class="fsub" onclick="submitForm()">Submit Request →</button>
+            <div id="fMsg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-about">
+          <a href="home.html" class="ft-logo"><img src="logo.png" alt="Cognisys AI Logo"
+              style="width: 38px; height: 38px; object-fit: contain;" />
+            <div>
+              <div style="font-family:var(--font);font-weight:800;font-size:1.1rem;color:#fff;">COGNISYS <span
+                  style="color:var(--orange)">AI</span></div>
+              <div
+                style="font-family:var(--body);font-size:.6rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;">
+                Digital Marketing Agency</div>
+            </div>
+          </a>
+          <p class="ft-desc">A Deep-Tech Company Building Intelligent Business Acceleration Platforms. Precision digital
+            marketing powered by our proprietary AI performance layer.</p>
+          <div class="ft-social"><a href="#" class="fsoc">𝕏</a><a href="https://www.linkedin.com/company/cognisys-ai/"
+              target="_blank" class="fsoc">in</a><a
+              href="https://www.instagram.com/cognisysai.media?igsh=MWU1dmE3bGZmanlteg==" target="_blank"
+              class="fsoc">ig</a><a href="https://youtube.com/@aitechfeed?si=zRnFGO1Nfv3mKDiq" target="_blank"
+              class="fsoc">yt</a><a
+              href="https://www.facebook.com/profile.php?id=61588584663365&amp;mibextid=rS40aB7S9Ucbxw6v"
+              target="_blank" class="fsoc">fb</a></div>
+        </div>
+        <div>
+          <div class="ft-col-title">Quick Links</div>
+          <ul class="ft-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-col-title">Services</div>
+          <ul class="ft-links">
+            <li><a href="services.html">YouTube Marketing</a></li>
+            <li><a href="services.html">Google & SEO</a></li>
+            <li><a href="services.html">Facebook Marketing</a></li>
+            <li><a href="services.html">Instagram Reels</a></li>
+            <li><a href="services.html">Meta Ads</a></li>
+            <li><a href="services.html">SEO</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="ft-col-title">Company</div>
+          <ul class="ft-links">
+            <li><a href="contact.html">Free Audit</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+          <div
+            style="margin-top:1.5rem;background:rgba(240,90,26,.1);border-left:3px solid var(--orange);padding:.85rem 1rem;">
+            <div
+              style="font-family:var(--font);font-size:.65rem;font-weight:700;color:var(--orange);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;">
+              Office Hours</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.55);">Mon–Sat · 9AM–7PM IST</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.55);">Hyderabad, Telangana</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="fb-copy">© 2025 <span>Cognisys AI Pvt. Ltd.</span> All rights reserved.</div>
+        <div class="fb-tagline">Built to Scale · Driven by Data · Powered by AI</div>
+      </div>
+    </div>
+  </footer>
+  <script src="shared.js"></script>
+</body>
+
+</html>

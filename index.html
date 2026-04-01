@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cognisys AI — AI-Powered Digital Marketing Agency | Hyderabad</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow+Condensed:wght@600;700;800;900&family=Mulish:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --orange: #f05a1a;
+      --orange2: #ff7a3d;
+      --navy: #1a2d42;
+      --navy2: #0f1e2e;
+      --font: 'Barlow', sans-serif;
+      --display: 'Barlow Condensed', sans-serif;
+      --body: 'Mulish', sans-serif;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: var(--navy2);
+      font-family: var(--body);
+      cursor: none;
+    }
+
+    /* CURSOR */
+    .cur {
+      width: 10px;
+      height: 10px;
+      background: var(--orange);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform .1s;
+    }
+
+    .cur-ring {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: all .18s ease;
+      opacity: .45;
+    }
+
+    /* BG layers */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .bg-glow1 {
+      position: fixed;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240, 90, 26, .12) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+      pointer-events: none;
+      animation: gPulse 6s ease-in-out infinite;
+    }
+
+    .bg-glow2 {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(107, 40, 217, .1) 0%, transparent 70%);
+      bottom: -150px;
+      left: -100px;
+      pointer-events: none;
+      animation: gPulse 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes gPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: .7;
+      }
+    }
+
+    /* Dot pattern */
+    .bg-dots {
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(240, 90, 26, .18) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      opacity: .4;
+    }
+
+    /* Diagonal slash */
+    .bg-slash {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 100vh solid rgba(240, 90, 26, .04);
+      border-left: 60vw solid transparent;
+      pointer-events: none;
+    }
+
+    /* MAIN WRAPPER */
+    .landing {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    /* Logo mark */
+    .lp-logo-mark {
+      margin: 0 auto 1.5rem;
+      animation: fadeUp .6s ease .1s both;
+    }
+
+    .lp-logo-mark svg {
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Brand */
+    .lp-brand {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      color: #fff;
+      line-height: .88;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      animation: fadeUp .7s ease .2s both;
+    }
+
+    .lp-brand span {
+      color: var(--orange);
+    }
+
+    .lp-tagline-line {
+      width: 80px;
+      height: 3px;
+      background: var(--orange);
+      margin: 1.4rem auto;
+      animation: fadeUp .5s ease .3s both;
+    }
+
+    .lp-sub {
+      font-family: var(--font);
+      font-size: clamp(.8rem, 2vw, 1rem);
+      font-weight: 600;
+      color: rgba(255, 255, 255, .45);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 2.8rem;
+      animation: fadeUp .6s ease .35s both;
+    }
+
+    /* Chips */
+    .lp-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      justify-content: center;
+      margin-bottom: 3.5rem;
+      animation: fadeUp .6s ease .4s both;
+    }
+
+    .lp-chip {
+      background: rgba(240, 90, 26, .12);
+      border: 1px solid rgba(240, 90, 26, .3);
+      color: rgba(255, 255, 255, .8);
+      font-family: var(--font);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .38rem 1.1rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+      transition: all .25s;
+    }
+
+    .lp-chip:hover {
+      background: rgba(240, 90, 26, .25);
+      color: #fff;
+    }
+
+    /* CTA */
+    .lp-cta {
+      animation: fadeUp .7s ease .5s both;
+    }
+
+    .lp-enter {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--orange);
+      color: #fff;
+      padding: 1.1rem 2.8rem;
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lp-enter::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .15), transparent);
+      transform: translateX(-100%);
+      transition: transform .5s;
+    }
+
+    .lp-enter:hover::before {
+      transform: translateX(100%);
+    }
+
+    .lp-enter:hover {
+      background: var(--orange2);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(240, 90, 26, .5);
+    }
+
+    .lp-enter .arr-icon {
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, .2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+      transition: transform .3s;
+    }
+
+    .lp-enter:hover .arr-icon {
+      transform: translateX(5px);
+    }
+
+    .lp-note {
+      font-size: .72rem;
+      color: rgba(255, 255, 255, .25);
+      margin-top: 1.2rem;
+      letter-spacing: .06em;
+    }
+
+    /* Progress bar at bottom */
+    .lp-progress {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(255, 255, 255, .06);
+      z-index: 20;
+    }
+
+    .lp-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange), var(--orange2));
+      width: 0%;
+      transition: width .1s linear;
+    }
+
+    /* Bottom info strip */
+    .lp-bottom {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      z-index: 20;
+      animation: fadeUp .5s ease 1s both;
+    }
+
+    .lp-bottom-item {
+      font-family: var(--font);
+      font-size: .68rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .22);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .lp-bottom-item span {
+      color: rgba(240, 90, 26, .7);
+    }
+
+    /* Particles */
+    .particle {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: pFloat linear infinite;
+    }
+
+    @keyframes pFloat {
+      0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0);
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: .5;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(1.5);
+      }
+    }
+
+    /* Counter ring */
+    .lp-ring {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(240, 90, 26, .06);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: ringPulse 4s ease-in-out infinite;
+    }
+
+    .lp-ring2 {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 750px;
+      height: 750px;
+      border: 1px solid rgba(240, 90, 26, .04);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: ringPulse 4s ease-in-out infinite .5s;
+    }
+
+    @keyframes ringPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .4;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* Responsive */
+    @media(max-width:600px) {
+      .lp-brand {
+        font-size: 3.5rem;
+      }
+
+      .lp-bottom {
+        flex-direction: column;
+        gap: .5rem;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="cr"></div>
+
+  <div class="bg-grid"></div>
+  <div class="bg-glow1"></div>
+  <div class="bg-glow2"></div>
+  <div class="bg-dots"></div>
+  <div class="bg-slash"></div>
+  <div class="lp-ring"></div>
+  <div class="lp-ring2"></div>
+  <div id="particles"></div>
+
+  <div class="landing">
+
+    <!-- Logo Mark -->
+    <div class="lp-logo-mark">
+      <img src="logo.png" alt="Cognisys AI Logo"
+        style="height: 80px; width: auto; max-width: 100%; object-fit: contain; margin: 0 auto; display: block;" />
+    </div>
+
+    <!-- Brand -->
+    <div class="lp-brand">COGNISYS <span>AI</span></div>
+    <div class="lp-tagline-line"></div>
+    <div class="lp-sub">Deep-Tech Digital Marketing Agency · Hyderabad</div>
+
+    <!-- Platform Chips -->
+    <div class="lp-chips">
+      <span class="lp-chip">YouTube</span>
+      <span class="lp-chip">Google Ads</span>
+      <span class="lp-chip">Facebook</span>
+      <span class="lp-chip">Instagram Reels</span>
+      <span class="lp-chip">Meta Ads</span>
+      <span class="lp-chip">SEO</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="lp-cta">
+      <a href="home.html" class="lp-enter">
+        <span>Enter Website</span>
+        <span class="arr-icon">↗</span>
+      </a>
+      <div class="lp-note">Zero upfront fees · AI-powered · 200+ brands scaled</div>
+    </div>
+
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="lp-progress">
+    <div class="lp-progress-fill" id="pgBar"></div>
+  </div>
+
+  <!-- Bottom Strip -->
+  <div class="lp-bottom">
+    <div class="lp-bottom-item">Hyderabad, <span>Telangana</span></div>
+    <div class="lp-bottom-item"><span>15%</span> Success Fee Only</div>
+    <div class="lp-bottom-item">©2025 Cognisys AI <span>Pvt. Ltd.</span></div>
+  </div>
+
+  <script>
+    /* Cursor */
+    var cur = document.getElementById('cur'), cr = document.getElementById('cr');
+    var mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; });
+    (function a() {
+      cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+      rx += (mx - rx) * .12; ry += (my - ry) * .12;
+      cr.style.left = rx + 'px'; cr.style.top = ry + 'px';
+      requestAnimationFrame(a);
+    })();
+    document.querySelectorAll('a,.lp-chip').forEach(function (el) {
+      el.addEventListener('mouseenter', function () { cr.style.width = '52px'; cr.style.height = '52px'; cr.style.opacity = '.25'; cur.style.transform = 'translate(-50%,-50%) scale(1.5)'; });
+      el.addEventListener('mouseleave', function () { cr.style.width = '36px'; cr.style.height = '36px'; cr.style.opacity = '.45'; cur.style.transform = 'translate(-50%,-50%) scale(1)'; });
+    });
+
+    /* Particles */
+    var pc = document.getElementById('particles');
+    var colors = ['rgba(240,90,26,.6)', 'rgba(168,85,247,.5)', 'rgba(255,255,255,.3)'];
+    for (var i = 0; i < 18; i++) {
+      var p = document.createElement('div');
+      p.className = 'particle';
+      var sz = Math.random() * 5 + 2;
+      p.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;left:' + Math.random() * 100 + '%;background:' + colors[Math.floor(Math.random() * colors.length)] + ';animation-duration:' + (Math.random() * 12 + 8) + 's;animation-delay:' + Math.random() * 8 + 's;';
+      pc.appendChild(p);
+    }
+
+    /* Progress bar + auto redirect */
+    var pct = 0;
+    var bar = document.getElementById('pgBar');
+    var timer = setInterval(function () {
+      pct += 1.5;
+      bar.style.width = Math.min(pct, 100) + '%';
+      if (pct >= 100) {
+        clearInterval(timer);
+        setTimeout(function () {
+          document.body.style.transition = 'opacity .6s';
+          document.body.style.opacity = '0';
+          setTimeout(function () { window.location.href = 'home.html'; }, 600);
+        }, 400);
+      }
+    }, 90);
+
+    /* Also allow Enter link to clear timer */
+    document.querySelector('.lp-enter').addEventListener('click', function () { clearInterval(timer); });
+  </script>
+</body>
+
+</html>

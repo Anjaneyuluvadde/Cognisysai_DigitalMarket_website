@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clients & Contact — Cognisys AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    /* METRICS */
+    .metrics { padding:7rem 5%; }
+    .met-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.4rem; margin-top:3.5rem; }
+    .met-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:2.2rem; text-align:center; transition:all .3s; }
+    .met-card:hover { border-color:rgba(124,58,237,.3); transform:translateY(-4px); }
+    .met-num { font-family:var(--font); font-weight:900; font-size:2.9rem; line-height:1; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .met-suf { font-family:var(--font); font-weight:900; font-size:1.2rem; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .met-lbl { font-size:.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-top:.4rem; }
+
+    /* LOGOS */
+    .logos-sec { background:var(--bg2); padding:6rem 5%; }
+    .logos-center { text-align:center; margin-bottom:3.5rem; }
+    .logos-center .sec-tag { justify-content:center; }
+    .logos-center .sec-title { text-align:center; }
+    .logos-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+    .logo-cell { background:var(--bg2); padding:2rem 1.5rem; display:flex; align-items:center; justify-content:center; transition:background .25s; }
+    .logo-cell:hover { background:var(--bg3); }
+    .logo-name { font-family:var(--font); font-weight:800; font-size:.95rem; letter-spacing:.07em; color:var(--muted); transition:all .25s; }
+    .logo-cell:hover .logo-name { background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+
+    /* CASE STUDIES */
+    .cases { padding:7rem 5%; }
+    .case-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3.5rem; }
+    .case-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:all .3s; }
+    .case-card:hover { transform:translateY(-5px); border-color:rgba(124,58,237,.25); }
+    .cc-head { padding:2rem 2rem 1.5rem; border-bottom:1px solid var(--border); }
+    .cc-platform { display:inline-flex; align-items:center; gap:.45rem; font-family:var(--font); font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:rgba(124,58,237,.1); border:1px solid rgba(124,58,237,.2); color:#a78bfa; padding:.22rem .65rem; border-radius:100px; margin-bottom:1rem; }
+    .cc-client { font-family:var(--font); font-weight:900; font-size:1.15rem; margin-bottom:.3rem; }
+    .cc-industry { font-size:.75rem; color:var(--muted); font-family:var(--font); }
+    .cc-body { padding:1.8rem 2rem; }
+    .cc-results { display:flex; gap:1.5rem; margin-bottom:1.1rem; }
+    .cr-num { font-family:var(--font); font-weight:900; font-size:1.55rem; line-height:1; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .cr-lbl { font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+    .cc-desc { font-size:.83rem; color:var(--muted); line-height:1.75; }
+    .cc-tags { display:flex; gap:.45rem; flex-wrap:wrap; margin-top:1.1rem; }
+    .ct { font-size:.68rem; color:var(--muted); border:1px solid var(--border); padding:.16rem .55rem; border-radius:100px; font-family:var(--font); }
+
+    /* TESTIMONIALS */
+    .testis { background:var(--bg2); padding:7rem 5%; }
+    .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3.5rem; }
+    .testi-card { background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:2.2rem; transition:all .3s; }
+    .testi-card:hover { transform:translateY(-4px); border-color:rgba(124,58,237,.25); }
+    .testi-card.featured { border-color:rgba(124,58,237,.25); }
+    .tc-stars { color:#f59e0b; font-size:.78rem; letter-spacing:2px; margin-bottom:.85rem; }
+    .tc-q { font-size:.9rem; color:var(--muted); line-height:1.8; margin-bottom:1.8rem; font-style:italic; }
+    .tc-auth { display:flex; align-items:center; gap:.85rem; }
+    .tc-av { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .av1{background:rgba(124,58,237,.12)} .av2{background:rgba(168,85,247,.12)} .av3{background:rgba(249,115,22,.12)} .av4{background:rgba(239,68,68,.12)} .av5{background:rgba(59,130,246,.12)} .av6{background:rgba(234,179,8,.12)}
+    .tc-name { font-family:var(--font); font-weight:700; font-size:.86rem; }
+    .tc-role { font-size:.72rem; color:var(--muted); }
+    .tc-plat { margin-left:auto; font-size:.65rem; color:#a78bfa; font-family:var(--font); font-weight:700; background:rgba(124,58,237,.08); padding:.18rem .55rem; border-radius:100px; white-space:nowrap; }
+
+    /* CONTACT */
+    #contact { padding:7rem 5%; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; margin-top:3.5rem; }
+    .ci-list { display:flex; flex-direction:column; gap:1.1rem; margin-top:2rem; }
+    .ci { display:flex; align-items:flex-start; gap:1rem; padding:1.2rem; background:var(--bg2); border:1px solid var(--border); border-radius:8px; transition:border-color .2s; }
+    .ci:hover { border-color:rgba(124,58,237,.25); }
+    .ci-ico { width:40px; height:40px; border-radius:8px; flex-shrink:0; background:rgba(124,58,237,.1); border:1px solid rgba(124,58,237,.2); display:flex; align-items:center; justify-content:center; font-size:.95rem; }
+    .ci-lbl { font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; font-weight:700; font-family:var(--font); margin-bottom:.2rem; }
+    .ci-val { font-size:.88rem; font-weight:500; }
+    .ff-title { font-family:var(--font); font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:2rem 0 .9rem; }
+    .ff-list { display:flex; flex-direction:column; gap:.6rem; }
+    .ff-item { display:flex; align-items:center; gap:.7rem; font-size:.86rem; }
+    .ff-item::before { content:'✓'; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:700; font-size:.85rem; flex-shrink:0; }
+
+    .form-box { background:var(--bg2); border-radius:12px; padding:2.8rem; position:relative; overflow:hidden; border:1px solid rgba(124,58,237,.2); }
+    .form-box::before { content:''; display:block; height:3px; margin:-2.8rem -2.8rem 2.5rem; background:var(--grad); border-radius:12px 12px 0 0; }
+    .form-box h3 { font-family:var(--font); font-weight:900; font-size:1.45rem; margin-bottom:.4rem; }
+    .form-box p { font-size:.86rem; color:var(--muted); margin-bottom:2rem; line-height:1.6; }
+    .fr { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .fg { display:flex; flex-direction:column; gap:.38rem; margin-bottom:1rem; }
+    .fg label { font-size:.68rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.07em; font-family:var(--font); }
+    .fg input,.fg select,.fg textarea { background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:6px; padding:.75rem 1rem; color:var(--text); font-family:var(--body); font-size:.88rem; outline:none; transition:border-color .2s; resize:none; }
+    .fg input:focus,.fg select:focus,.fg textarea:focus { border-color:var(--purple); }
+    .fg input::placeholder,.fg textarea::placeholder { color:var(--muted); }
+    .fg select option { background:var(--bg2); }
+    .fsub { width:100%; background:var(--grad); color:#fff; border:none; padding:1rem; border-radius:6px; font-family:var(--font); font-weight:800; font-size:.88rem; letter-spacing:.07em; text-transform:uppercase; cursor:none; transition:all .25s; margin-top:.5rem; box-shadow:0 4px 20px rgba(124,58,237,.3); }
+    .fsub:hover { background:var(--grad-h); box-shadow:0 8px 32px rgba(124,58,237,.45); }
+    #fMsg { margin-top:.85rem; font-size:.84rem; text-align:center; min-height:1.2rem; }
+
+    @media(max-width:900px){ .met-grid{grid-template-columns:repeat(2,1fr)} .logos-grid{grid-template-columns:repeat(3,1fr)} .case-grid{grid-template-columns:1fr 1fr} .testi-grid{grid-template-columns:1fr 1fr} .contact-grid{grid-template-columns:1fr} }
+    @media(max-width:600px){ .met-grid{grid-template-columns:1fr 1fr} .logos-grid{grid-template-columns:repeat(2,1fr)} .case-grid{grid-template-columns:1fr} .testi-grid{grid-template-columns:1fr} .fr{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="clients.html" onclick="closeMenu()">Clients</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+</div>
+<nav id="navbar">
+  <a href="home.html" class="nav-brand">
+    <img src="logo.png" alt="Cognisys AI Logo" class="logo-svg" style="height: 44px; width: auto; max-width: 200px; object-fit: contain;" />
+    <div class="nav-brand-text">COGNISYS <span class="g">AI</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="clients.html" class="active">Clients</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Free Audit →</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-banner">
+  <div class="pb-grid"></div>
+  <div class="pb-content">
+    <div class="pb-eyebrow">Clients & Results</div>
+    <h1>Trusted by <span class="g">200+ Brands.</span></h1>
+    <p>From funded startups to established enterprises — here's how Cognisys AI has transformed digital presence and driven measurable growth across industries.</p>
+  </div>
+</div>
+<div class="marquee"><div class="mq-track"><span>200+ Brands Scaled</span><span>340% Avg Traffic Growth</span><span>40% CPA Reduction</span><span>98% Retention Rate</span><span>10k+ Instagram Views/Reel</span><span>Success-Based Model</span><span>Zero Upfront Fees</span><span>200+ Brands Scaled</span><span>340% Avg Traffic Growth</span><span>40% CPA Reduction</span><span>98% Retention Rate</span><span>10k+ Instagram Views/Reel</span><span>Success-Based Model</span><span>Zero Upfront Fees</span></div></div>
+
+<!-- METRICS -->
+<div class="metrics">
+  <div class="reveal"><div class="sec-tag">Proven Performance</div><h2 class="sec-title">Numbers That <span class="g">Speak</span></h2><p class="sec-desc">Real results from real clients. Every number backed by verified campaign data.</p></div>
+  <div class="met-grid">
+    <div class="met-card reveal"><div><span class="met-num" data-target="200">0</span><span class="met-suf">+</span></div><div class="met-lbl">Brands Scaled</div></div>
+    <div class="met-card reveal delay1"><div><span class="met-num" data-target="340">0</span><span class="met-suf">%</span></div><div class="met-lbl">Avg. Traffic Growth</div></div>
+    <div class="met-card reveal delay2"><div><span class="met-num" data-target="40">0</span><span class="met-suf">%</span></div><div class="met-lbl">Avg. CPA Reduction</div></div>
+    <div class="met-card reveal delay3"><div><span class="met-num" data-target="98">0</span><span class="met-suf">%</span></div><div class="met-lbl">Client Retention Rate</div></div>
+    <div class="met-card reveal"><div><span class="met-num" data-target="280">0</span><span class="met-suf">+</span></div><div class="met-lbl">Campaigns Launched</div></div>
+    <div class="met-card reveal delay1"><div><span class="met-num" data-target="12">0</span></div><div class="met-lbl">Industry Verticals</div></div>
+    <div class="met-card reveal delay2"><div><span class="met-num" data-target="85">0</span><span class="met-suf">k+</span></div><div class="met-lbl">Instagram Followers Grown</div></div>
+    <div class="met-card reveal delay3"><div><span class="met-num">₹0</span></div><div class="met-lbl">Upfront Fees Ever Charged</div></div>
+  </div>
+</div>
+
+<!-- LOGOS -->
+<div class="logos-sec">
+  <div class="logos-center reveal"><div class="sec-tag">Our Clients</div><h2 class="sec-title">Brands That <span class="g">Trust Us</span></h2></div>
+  <div class="logos-grid reveal">
+    <div class="logo-cell"><div class="logo-name">TechNova</div></div>
+    <div class="logo-cell"><div class="logo-name">EduSpark</div></div>
+    <div class="logo-cell"><div class="logo-name">BrandAxis</div></div>
+    <div class="logo-cell"><div class="logo-name">SkyRocket</div></div>
+    <div class="logo-cell"><div class="logo-name">CoreFusion</div></div>
+    <div class="logo-cell"><div class="logo-name">Pinnacle</div></div>
+    <div class="logo-cell"><div class="logo-name">TechLearn</div></div>
+    <div class="logo-cell"><div class="logo-name">DataFlow</div></div>
+    <div class="logo-cell"><div class="logo-name">UrbanEdge</div></div>
+    <div class="logo-cell"><div class="logo-name">PulseHQ</div></div>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<div class="cases">
+  <div class="reveal"><div class="sec-tag">Case Studies</div><h2 class="sec-title">Real Campaigns. <span class="g">Real Results.</span></h2><p class="sec-desc">Detailed breakdowns of how our AI-powered strategies delivered transformative results.</p></div>
+  <div class="case-grid">
+    <div class="case-card card-hover reveal"><div class="cc-head"><div class="cc-platform">Instagram & Meta</div><div class="cc-client">EduSpark Academy</div><div class="cc-industry">EdTech · Online Education</div></div><div class="cc-body"><div class="cc-results"><div><div class="cr-num">3x</div><div class="cr-lbl">Follower Growth</div></div><div><div class="cr-num">75k</div><div class="cr-lbl">Followers</div></div><div><div class="cr-num">2x</div><div class="cr-lbl">Leads</div></div></div><div class="cc-desc">Grew EduSpark from 3,000 to 75,000 organic Instagram followers in 8 months through strategic Reels production, community management, and Meta lead gen campaigns. Leads doubled.</div><div class="cc-tags"><span class="ct">Instagram Reels</span><span class="ct">Meta Ads</span><span class="ct">Influencer</span></div></div></div>
+    <div class="case-card card-hover reveal delay1"><div class="cc-head"><div class="cc-platform">Google & SEO</div><div class="cc-client">TechLearn Hub</div><div class="cc-industry">SaaS · B2B Technology</div></div><div class="cc-body"><div class="cc-results"><div><div class="cr-num">340%</div><div class="cr-lbl">Organic Traffic</div></div><div><div class="cr-num">Pg.1</div><div class="cr-lbl">Google Rank</div></div><div><div class="cr-num">3mo</div><div class="cr-lbl">To Results</div></div></div><div class="cc-desc">Moved TechLearn from page 4 to page 1 in 3 months through aggressive technical SEO, content strategy, and targeted Google Ads. Organic traffic grew 340%.</div><div class="cc-tags"><span class="ct">Technical SEO</span><span class="ct">Google Ads</span><span class="ct">Content</span></div></div></div>
+    <div class="case-card card-hover reveal delay2"><div class="cc-head"><div class="cc-platform">Meta Ads</div><div class="cc-client">Pinnacle Institute</div><div class="cc-industry">Education · Coaching Centre</div></div><div class="cc-body"><div class="cc-results"><div><div class="cr-num">45%</div><div class="cr-lbl">CPA Reduction</div></div><div><div class="cr-num">4x</div><div class="cr-lbl">Registrations</div></div><div><div class="cr-num">₹0</div><div class="cr-lbl">Upfront Paid</div></div></div><div class="cc-desc">Cut cost-per-registration by 45% using AI-driven Meta Pixel retargeting. Custom Lookalike audiences and systematic A/B testing led to 4x more monthly registrations within 2 months.</div><div class="cc-tags"><span class="ct">Meta Ads</span><span class="ct">Retargeting</span><span class="ct">A/B Testing</span></div></div></div>
+    <div class="case-card card-hover reveal"><div class="cc-head"><div class="cc-platform">YouTube</div><div class="cc-client">UrbanEdge Fitness</div><div class="cc-industry">Health & Fitness · D2C</div></div><div class="cc-body"><div class="cc-results"><div><div class="cr-num">50k</div><div class="cr-lbl">Subscribers</div></div><div><div class="cr-num">2M+</div><div class="cr-lbl">Total Views</div></div><div><div class="cr-num">6mo</div><div class="cr-lbl">Timeline</div></div></div><div class="cc-desc">Built UrbanEdge's YouTube from zero to 50,000 subscribers in 6 months with Shorts + long-form strategy, SEO-optimized titles, and CTR-maximized thumbnails. 2M+ total views.</div><div class="cc-tags"><span class="ct">YouTube Channel</span><span class="ct">Shorts</span><span class="ct">Video SEO</span></div></div></div>
+    <div class="case-card card-hover reveal delay1"><div class="cc-head"><div class="cc-platform">Facebook & Meta</div><div class="cc-client">CoreFusion FMCG</div><div class="cc-industry">FMCG · E-commerce</div></div><div class="cc-body"><div class="cc-results"><div><div class="cr-num">5x</div><div class="cr-lbl">ROAS</div></div><div><div class="cr-num">60%</div><div class="cr-lbl">Lower CPC</div></div><div><div class="cr-num">1mo</div><div class="cr-lbl">Break-even</div></div></div><div class="cc-desc">Achieved 5x ROAS on Facebook/Meta campaigns through Catalog Ads, Advantage+ Shopping, and deep Pixel optimization. Reached break-even on ad spend within the first month.</div><div class="cc-tags"><span class="ct">Facebook Catalog</span><span class="ct">Advantage+</span><span class="ct">Meta Ads</span></div></div></div>
+    <div class="case-card card-hover reveal delay2"><div class="cc-head"><div class="cc-platform">Full-Stack</div><div class="cc-client">SkyRocket Coaching</div><div class="cc-industry">IAS/UPSC Coaching</div></div><div class="cc-body"><div class="cc-results"><div><div class="cr-num">200%</div><div class="cr-lbl">Revenue Growth</div></div><div><div class="cr-num">All 6</div><div class="cr-lbl">Platforms</div></div><div><div class="cr-num">12mo</div><div class="cr-lbl">Timeline</div></div></div><div class="cc-desc">Full-stack digital transformation across all 6 platforms working as one integrated growth engine. YouTube, Google, Instagram, Facebook, Meta Ads, and SEO delivered 200% revenue growth in 12 months.</div><div class="cc-tags"><span class="ct">All Platforms</span><span class="ct">AI Layer</span><span class="ct">Full-Stack</span></div></div></div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testis">
+  <div class="reveal"><div class="sec-tag">Testimonials</div><h2 class="sec-title">What Our <span class="g">Clients Say</span></h2><p class="sec-desc">Unfiltered feedback from brands that trusted Cognisys AI with their digital growth.</p></div>
+  <div class="testi-grid">
+    <div class="testi-card featured card-hover reveal"><div class="tc-stars">★★★★★</div><p class="tc-q">"Cognisys AI transformed our Instagram from 3,000 to 75,000 followers in 8 months with zero paid follower schemes. Pure organic growth through incredible Reels content. Our leads doubled. Best investment we've made."</p><div class="tc-auth"><div class="tc-av av1">👩‍💼</div><div><div class="tc-name">Sneha Rathore</div><div class="tc-role">Founder · EduSpark Academy</div></div><div class="tc-plat">Instagram</div></div></div>
+    <div class="testi-card card-hover reveal delay1"><div class="tc-stars">★★★★★</div><p class="tc-q">"The QUANTUM package delivered exactly what was promised — 20k+ views per Reel on Instagram. Our Google ranking moved from page 4 to page 1 in 3 months. The ROI is undeniable."</p><div class="tc-auth"><div class="tc-av av2">👨‍💼</div><div><div class="tc-name">Arjun Krishnamurthy</div><div class="tc-role">CEO · TechLearn Hub</div></div><div class="tc-plat">Google</div></div></div>
+    <div class="testi-card card-hover reveal delay2"><div class="tc-stars">★★★★★</div><p class="tc-q">"Zero upfront fees sounds too good to be true — but Cognisys AI delivered. Their Meta ad campaigns cut our cost-per-registration by 45%. Their AI retargeting system is genuinely next-level."</p><div class="tc-auth"><div class="tc-av av3">👩‍🏫</div><div><div class="tc-name">Priya Venkatesh</div><div class="tc-role">Director · Pinnacle Institute</div></div><div class="tc-plat">Meta Ads</div></div></div>
+    <div class="testi-card card-hover reveal"><div class="tc-stars">★★★★★</div><p class="tc-q">"From zero to 50K YouTube subscribers in 6 months — the channel growth was phenomenal. Their thumbnail strategy alone doubled our CTR. Video SEO has brought us consistent organic discovery every week."</p><div class="tc-auth"><div class="tc-av av4">👨‍🏋️</div><div><div class="tc-name">Rohan Shetty</div><div class="tc-role">Owner · UrbanEdge Fitness</div></div><div class="tc-plat">YouTube</div></div></div>
+    <div class="testi-card card-hover reveal delay1"><div class="tc-stars">★★★★★</div><p class="tc-q">"We achieved 5x ROAS on Facebook Catalog Ads within 30 days. The team's understanding of Advantage+ campaigns is at a level I haven't seen at other agencies. Absolutely outstanding."</p><div class="tc-auth"><div class="tc-av av5">👩‍💻</div><div><div class="tc-name">Aditi Sharma</div><div class="tc-role">Marketing Head · CoreFusion</div></div><div class="tc-plat">Facebook</div></div></div>
+    <div class="testi-card card-hover reveal delay2"><div class="tc-stars">★★★★★</div><p class="tc-q">"Full 360° digital transformation. Revenue grew 200% in 12 months. What sets Cognisys AI apart is the AI layer — it genuinely accelerates everything. This is the future of digital marketing."</p><div class="tc-auth"><div class="tc-av av6">👨‍🎓</div><div><div class="tc-name">Vikram Rao</div><div class="tc-role">Founder · SkyRocket Coaching</div></div><div class="tc-plat">Full-Stack</div></div></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal" style="max-width:580px"><div class="sec-tag">Get In Touch</div><h2 class="sec-title">Ready to <span class="g">Unlock Growth?</span></h2><p class="sec-desc">Book a free 30-minute strategy session. We'll audit your digital presence and show exactly how Cognisys AI can scale your brand — with zero upfront risk.</p></div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="ci-list">
+        <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-lbl">Email Us</div><div class="ci-val">hello@cognisysai.in</div></div></div>
+        <div class="ci"><div class="ci-ico">📞</div><div><div class="ci-lbl">Call Us</div><div class="ci-val">+91 98765 43210</div></div></div>
+        <div class="ci"><div class="ci-ico">📍</div><div><div class="ci-lbl">Location</div><div class="ci-val">Hyderabad, Telangana, India</div></div></div>
+        <div class="ci"><div class="ci-ico">🕐</div><div><div class="ci-lbl">Working Hours</div><div class="ci-val">Mon – Sat · 9AM – 7PM IST</div></div></div>
+      </div>
+      <div class="ff-title">What you get in the free call</div>
+      <div class="ff-list">
+        <div class="ff-item">Full audit of your current digital presence</div>
+        <div class="ff-item">Competitor analysis across your top 3 rivals</div>
+        <div class="ff-item">Custom growth roadmap for your business</div>
+        <div class="ff-item">Platform-specific strategy recommendations</div>
+        <div class="ff-item">Package recommendation with ROI estimate</div>
+        <div class="ff-item">Zero commitment, zero cost</div>
+      </div>
+    </div>
+    <div class="reveal delay2">
+      <div class="form-box">
+        <h3>Book Free Strategy Call</h3>
+        <p>Fill in the details below. Our team will reach out within 24 hours with your personalised growth plan.</p>
+        <div class="fr">
+          <div class="fg"><label>First Name</label><input type="text" id="fn" placeholder="Arjun"/></div>
+          <div class="fg"><label>Last Name</label><input type="text" id="ln" placeholder="Sharma"/></div>
+        </div>
+        <div class="fg"><label>Business Email</label><input type="email" id="em" placeholder="you@business.com"/></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" id="ph" placeholder="+91 98765 43210"/></div>
+        <div class="fg"><label>Company Name</label><input type="text" id="biz" placeholder="Your Company Pvt. Ltd."/></div>
+        <div class="fg"><label>Interested Package</label>
+          <select id="pkg">
+            <option value="">— Select a Package —</option>
+            <option>ALPHA — Foundation (₹20,000/mo)</option>
+            <option>QUANTUM — Accelerated (₹30,000/mo)</option>
+            <option>TITAN — Dominance (₹40,000/mo)</option>
+            <option>Custom / Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="fg"><label>Primary Platform Focus</label>
+          <select id="plat">
+            <option value="">— Select primary platform —</option>
+            <option>YouTube</option><option>Google Ads / SEO</option><option>Facebook</option><option>Instagram</option><option>Meta Ads</option><option>Full-Stack (All Platforms)</option>
+          </select>
+        </div>
+        <div class="fg"><label>Tell Us About Your Business</label><textarea id="msg" rows="3" placeholder="Industry, challenges, goals, monthly budget..."></textarea></div>
+        <button class="fsub" onclick="submitForm()">Send My Free Audit Request →</button>
+        <div id="fMsg"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div><a href="home.html" class="nav-brand"><img src="logo.png" alt="Cognisys AI Logo" class="logo-svg" style="height: 38px; width: auto; max-width: 200px; object-fit: contain;" /><div class="nav-brand-text" style="margin-left:.6rem">COGNISYS <span class="g">AI</span></div></a><p class="footer-tagline">A deep-tech company building intelligent business acceleration platforms. Precision digital marketing powered by AI.</p><div class="social-row"><a href="#" class="soc">𝕏</a><a href="#" class="soc">in</a><a href="#" class="soc">ig</a><a href="#" class="soc">yt</a><a href="#" class="soc">fb</a></div></div>
+    <div><div class="fc-title">Pages</div><ul class="fc-links"><li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="about.html">About</a></li></ul></div>
+    <div><div class="fc-title">Services</div><ul class="fc-links"><li><a href="services.html">YouTube</a></li><li><a href="services.html">Google & SEO</a></li><li><a href="services.html">Facebook</a></li><li><a href="services.html">Instagram</a></li><li><a href="services.html">Meta Ads</a></li></ul></div>
+    <div><div class="fc-title">Company</div><ul class="fc-links"><li><a href="#">Free SEO Audit</a></li><li><a href="#">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2025 <span class="g">Cognisys AI Pvt. Ltd.</span> All rights reserved. Made with ♥ in Hyderabad.</div><div class="footer-copy">Built to Scale. <span class="g">Driven by Data.</span></div></div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+  function submitForm(){
+    const n=document.getElementById('fn').value.trim(), e=document.getElementById('em').value.trim(), p=document.getElementById('ph').value.trim();
+    const m=document.getElementById('fMsg');
+    if(!n||!e||!p){m.style.color='#f97316';m.textContent='⚠ Please fill in your name, email and phone number.';return;}
+    if(!e.includes('@')){m.style.color='#f97316';m.textContent='⚠ Please enter a valid email address.';return;}
+    m.style.color='#a78bfa';m.textContent='✓ Thank you! Our team will contact you within 24 hours with your free growth audit.';
+    ['fn','ln','em','ph','biz','pkg','plat','msg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  }
+</script>
+</body>
+</html>
+
