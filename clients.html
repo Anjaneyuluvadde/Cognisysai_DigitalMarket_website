@@ -4,16 +4,17 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Clients & Contact — Cognisys AI</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="assets/css/shared.css">
   <style>
     /* METRICS */
     .metrics { padding:7rem 5%; }
     .met-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.4rem; margin-top:3.5rem; }
     .met-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:2.2rem; text-align:center; transition:all .3s; }
     .met-card:hover { border-color:rgba(124,58,237,.3); transform:translateY(-4px); }
-    .met-num { font-family:var(--font); font-weight:900; font-size:2.9rem; line-height:1; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .met-suf { font-family:var(--font); font-weight:900; font-size:1.2rem; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .met-num { font-family:var(--font); font-weight:900; font-size:2.9rem; line-height:1; background:var(--grad-text); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .met-suf { font-family:var(--font); font-weight:900; font-size:1.2rem; background:var(--grad-text); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
     .met-lbl { font-size:.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-top:.4rem; }
 
     /* LOGOS */
@@ -25,7 +26,7 @@
     .logo-cell { background:var(--bg2); padding:2rem 1.5rem; display:flex; align-items:center; justify-content:center; transition:background .25s; }
     .logo-cell:hover { background:var(--bg3); }
     .logo-name { font-family:var(--font); font-weight:800; font-size:.95rem; letter-spacing:.07em; color:var(--muted); transition:all .25s; }
-    .logo-cell:hover .logo-name { background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .logo-cell:hover .logo-name { background:var(--grad-text); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
 
     /* CASE STUDIES */
     .cases { padding:7rem 5%; }
@@ -38,7 +39,7 @@
     .cc-industry { font-size:.75rem; color:var(--muted); font-family:var(--font); }
     .cc-body { padding:1.8rem 2rem; }
     .cc-results { display:flex; gap:1.5rem; margin-bottom:1.1rem; }
-    .cr-num { font-family:var(--font); font-weight:900; font-size:1.55rem; line-height:1; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .cr-num { font-family:var(--font); font-weight:900; font-size:1.55rem; line-height:1; background:var(--grad-text); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
     .cr-lbl { font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
     .cc-desc { font-size:.83rem; color:var(--muted); line-height:1.75; }
     .cc-tags { display:flex; gap:.45rem; flex-wrap:wrap; margin-top:1.1rem; }
@@ -68,10 +69,10 @@
     .ci-ico { width:40px; height:40px; border-radius:8px; flex-shrink:0; background:rgba(124,58,237,.1); border:1px solid rgba(124,58,237,.2); display:flex; align-items:center; justify-content:center; font-size:.95rem; }
     .ci-lbl { font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; font-weight:700; font-family:var(--font); margin-bottom:.2rem; }
     .ci-val { font-size:.88rem; font-weight:500; }
-    .ff-title { font-family:var(--font); font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:2rem 0 .9rem; }
+    .ff-title { font-family:var(--font); font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; background:var(--grad-text); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; margin:2rem 0 .9rem; }
     .ff-list { display:flex; flex-direction:column; gap:.6rem; }
     .ff-item { display:flex; align-items:center; gap:.7rem; font-size:.86rem; }
-    .ff-item::before { content:'✓'; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:700; font-size:.85rem; flex-shrink:0; }
+    .ff-item::before { content:'✓'; background:var(--grad-text); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-weight:700; font-size:.85rem; flex-shrink:0; }
 
     .form-box { background:var(--bg2); border-radius:12px; padding:2.8rem; position:relative; overflow:hidden; border:1px solid rgba(124,58,237,.2); }
     .form-box::before { content:''; display:block; height:3px; margin:-2.8rem -2.8rem 2.5rem; background:var(--grad); border-radius:12px 12px 0 0; }
@@ -97,21 +98,43 @@
 <div class="cur-ring" id="curRing"></div>
 <div class="mob-menu" id="mobMenu">
   <button class="mob-close" id="mobClose">✕</button>
-  <a href="services.html" onclick="closeMenu()">Services</a>
-  <a href="clients.html" onclick="closeMenu()">Clients</a>
+  <a href="home.html" onclick="closeMenu()">Home</a>
   <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="packages.html" onclick="closeMenu()">Packages</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="assets/docs/brochure.pdf" download="CognisysAI-Brochure.pdf" class="nav-brochure" style="margin-top: 1rem; font-size: 1.2rem; padding: 0.8rem 2rem;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+    Brochure
+  </a>
 </div>
 <nav id="navbar">
   <a href="home.html" class="nav-brand">
-    <img src="logo.png" alt="Cognisys AI Logo" class="logo-svg" style="height: 44px; width: auto; max-width: 200px; object-fit: contain;" />
+    <img src="assets/images/logo.png" alt="Cognisys AI Logo" class="logo-svg" style="height: 44px; width: auto; max-width: 200px; object-fit: contain;" />
     <div class="nav-brand-text">COGNISYS <span class="g">AI</span></div>
   </a>
   <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="clients.html" class="active">Clients</a></li>
+    <li><a href="home.html">Home</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Free Audit →</a>
+  <div class="nav-right" style="display: flex; align-items: center; gap: 1rem;">
+    <a href="assets/docs/brochure.pdf" download="CognisysAI-Brochure.pdf" class="nav-brochure">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Brochure
+    </a>
+    <a href="contact.html" class="nav-cta">Free Audit →</a>
+  </div>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
 
@@ -240,7 +263,7 @@
 
 <footer>
   <div class="footer-inner">
-    <div><a href="home.html" class="nav-brand"><img src="logo.png" alt="Cognisys AI Logo" class="logo-svg" style="height: 38px; width: auto; max-width: 200px; object-fit: contain;" /><div class="nav-brand-text" style="margin-left:.6rem">COGNISYS <span class="g">AI</span></div></a><p class="footer-tagline">A deep-tech company building intelligent business acceleration platforms. Precision digital marketing powered by AI.</p><div class="social-row"><a href="#" class="soc">𝕏</a><a href="#" class="soc">in</a><a href="#" class="soc">ig</a><a href="#" class="soc">yt</a><a href="#" class="soc">fb</a></div></div>
+    <div><a href="home.html" class="nav-brand"><img src="assets/images/logo.png" alt="Cognisys AI Logo" class="logo-svg" style="height: 38px; width: auto; max-width: 200px; object-fit: contain;" /><div class="nav-brand-text" style="margin-left:.6rem">COGNISYS <span class="g">AI</span></div></a><p class="footer-tagline">A deep-tech company building intelligent business acceleration platforms. Precision digital marketing powered by AI.</p><div class="social-row"><a href="#" class="soc">𝕏</a><a href="#" class="soc">in</a><a href="#" class="soc">ig</a><a href="#" class="soc">yt</a><a href="#" class="soc">fb</a></div></div>
     <div><div class="fc-title">Pages</div><ul class="fc-links"><li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="clients.html">Clients</a></li><li><a href="about.html">About</a></li></ul></div>
     <div><div class="fc-title">Services</div><ul class="fc-links"><li><a href="services.html">YouTube</a></li><li><a href="services.html">Google & SEO</a></li><li><a href="services.html">Facebook</a></li><li><a href="services.html">Instagram</a></li><li><a href="services.html">Meta Ads</a></li></ul></div>
     <div><div class="fc-title">Company</div><ul class="fc-links"><li><a href="#">Free SEO Audit</a></li><li><a href="#">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
@@ -248,7 +271,7 @@
   <div class="footer-bottom"><div class="footer-copy">© 2025 <span class="g">Cognisys AI Pvt. Ltd.</span> All rights reserved. Made with ♥ in Hyderabad.</div><div class="footer-copy">Built to Scale. <span class="g">Driven by Data.</span></div></div>
 </footer>
 
-<script src="shared.js"></script>
+<script src="assets/js/shared.js"></script>
 <script>
   function submitForm(){
     const n=document.getElementById('fn').value.trim(), e=document.getElementById('em').value.trim(), p=document.getElementById('ph').value.trim();

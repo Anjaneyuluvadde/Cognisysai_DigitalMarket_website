@@ -5,10 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Packages — Cognisys AI | Alpha, Quantum & Titan Plans</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow+Condensed:wght@600;700;800;900&family=Mulish:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="assets/css/shared.css">
   <style>
     .page-banner {
       background: var(--navy2);
@@ -440,12 +441,20 @@
     <button class="mob-close" id="mobClose">✕</button>
     <a href="home.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a
       href="packages.html">Packages</a><a href="contact.html">Contact</a>
+    <a href="assets/docs/brochure.pdf" download="CognisysAI-Brochure.pdf" class="nav-brochure" style="margin-top: 1rem; font-size: 1.2rem; padding: 0.8rem 2rem;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Brochure
+    </a>
   </div>
 
   <nav id="navbar">
     <div class="nav-inner">
       <a href="home.html" class="nav-logo">
-        <img src="logo.png" alt="Cognisys AI Logo" class="logo-icon" />
+        <img src="assets/images/logo.png" alt="Cognisys AI Logo" class="logo-icon" />
         <div class="nav-logo-txt">
           <div class="nlt-main">COGNISYS <span>AI</span></div>
           <div class="nlt-sub">Digital Marketing</div>
@@ -458,7 +467,17 @@
         <li class="active"><a href="packages.html">Packages</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="nav-right"><a href="contact.html" class="nav-cta">Free Audit →</a></div>
+      <div class="nav-right">
+        <a href="assets/docs/brochure.pdf" download="CognisysAI-Brochure.pdf" class="nav-brochure">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Brochure
+        </a>
+        <a href="contact.html" class="nav-cta">Free Audit →</a>
+      </div>
       <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -507,7 +526,7 @@
           <div class="pkg-head">
             <div class="pkg-tier">Alpha</div>
             <div class="pkg-sub">Foundation Plan</div>
-            <div class="pkg-price"><sup>₹</sup>20,000<sub>/mo</sub></div>
+            <div class="pkg-price"><sup>₹</sup>25,000<sub>/mo</sub></div>
             <div class="pkg-zero">Zero Upfront</div>
           </div>
           <div class="pkg-rows">
@@ -555,7 +574,7 @@
           <div class="pkg-head">
             <div class="pkg-tier">Quantum</div>
             <div class="pkg-sub">Accelerated Plan</div>
-            <div class="pkg-price"><sup>₹</sup>30,000<sub>/mo</sub></div>
+            <div class="pkg-price"><sup>₹</sup>40,000<sub>/mo</sub></div>
             <div class="pkg-zero">Zero Upfront</div>
           </div>
           <div class="pkg-rows">
@@ -603,7 +622,7 @@
           <div class="pkg-head">
             <div class="pkg-tier">Titan</div>
             <div class="pkg-sub">Dominance Plan</div>
-            <div class="pkg-price"><sup>₹</sup>40,000<sub>/mo</sub></div>
+            <div class="pkg-price"><sup>₹</sup>50,000<sub>/mo</sub></div>
             <div class="pkg-zero">Zero Upfront</div>
           </div>
           <div class="pkg-rows">
@@ -1045,11 +1064,11 @@
     <div class="container">
       <div class="footer-top">
         <div class="ft-about">
-          <a href="home.html" class="ft-logo"><img src="logo.png" alt="Cognisys AI Logo"
+          <a href="home.html" class="ft-logo"><img src="assets/images/logo.png" alt="Cognisys AI Logo"
               style="width: 38px; height: 38px; object-fit: contain;" />
             <div>
               <div style="font-family:var(--font);font-weight:800;font-size:1.1rem;color:#fff;">COGNISYS <span
-                  style="color:var(--orange)">AI</span></div>
+                   style="color:var(--orange)">AI</span></div>
               <div
                 style="font-family:var(--body);font-size:.6rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;">
                 Digital Marketing</div>
@@ -1107,7 +1126,7 @@
       </div>
     </div>
   </footer>
-  <script src="shared.js"></script>
+  <script src="assets/js/shared.js"></script>
 </body>
 
 </html>
