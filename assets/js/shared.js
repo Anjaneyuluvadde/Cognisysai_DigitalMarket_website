@@ -68,6 +68,9 @@ function submitForm() {
     em = document.getElementById('em'),
     ph = document.getElementById('ph'),
     svc = document.getElementById('svc'),
+    pkg = document.getElementById('pkg'),
+    plat = document.getElementById('plat'),
+    biz = document.getElementById('biz'),
     msg = document.getElementById('msg'),
     fMsg = document.getElementById('fMsg');
 
@@ -92,32 +95,40 @@ function submitForm() {
 
   // Pre-fill data for WhatsApp
   const fullMsg = `New Inquiry from Cognisys AI Website:
-Name: ${fn.value} ${ln.value}
+Name: ${fn.value} ${ln ? ln.value : ''}
 Email: ${em.value}
 Phone: ${ph.value}
-Service: ${svc.value || 'Not specified'}
-Message: ${msg.value || 'No message'}`;
+Service: ${svc ? svc.value : 'Not specified'}
+Message: ${msg ? msg.value : 'No message'}`;
 
   // 1. WhatsApp Notification (Instant to Admin)
   const adminPhone = '916300447384';
   const waUrl = `https://api.whatsapp.com/send?phone=${adminPhone}&text=${encodeURIComponent(fullMsg)}`;
 
-  // 2. Email Notification Placeholder (Formspree)
-  // To activate email: replace 'YOUR_FORM_ID' with your real Formspree ID
-  const formID = 'YOUR_FORM_ID'; 
-  if (formID !== 'YOUR_FORM_ID') {
-    fetch(`https://formspree.io/f/${formID}`, {
-      method: 'POST',
-      body: JSON.stringify({
-        name: fn.value + ' ' + ln.value,
-        email: em.value,
-        phone: ph.value,
-        service: svc.value,
-        message: msg.value
-      }),
-      headers: { 'Accept': 'application/json' }
-    }).catch(err => console.error('Email error:', err));
-  }
+  // 2. Email Notification (FormSubmit.co)
+  // We send this to media@cognisysai.com using FormSubmit's AJAX endpoint.
+  const formData = new FormData();
+  formData.append('name', fn.value + ' ' + (ln ? ln.value : ''));
+  formData.append('email', em.value);
+  formData.append('phone', ph.value);
+  formData.append('company', biz ? biz.value : 'N/A');
+  formData.append('package', pkg ? pkg.value : 'N/A');
+  formData.append('platform', plat ? plat.value : 'N/A');
+  formData.append('service', svc ? svc.value : 'N/A');
+  formData.append('message', msg ? msg.value : 'N/A');
+  formData.append('_subject', 'New Website Inquiry - Cognisys AI');
+  formData.append('_captcha', 'false'); // Disable captcha for smoother AJAX flow
+
+  fetch('https://formsubmit.co/ajax/media@cognisysai.com', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) console.log('Email sent successfully via FormSubmit');
+    else console.error('Email failed with status:', response.status);
+  })
+  .catch(err => console.error('Email error:', err));
 
   // Show success and open WhatsApp
   fMsg.style.color = 'var(--orange)';
@@ -126,7 +137,9 @@ Message: ${msg.value || 'No message'}`;
   setTimeout(() => {
     window.open(waUrl, '_blank');
     // Clear form
-    [fn, ln, em, ph, msg].forEach(el => { if (el) el.value = ''; });
+    [fn, ln, em, ph, biz, msg].forEach(el => { if (el) el.value = ''; });
     if (svc) svc.selectedIndex = 0;
+    if (pkg) pkg.selectedIndex = 0;
+    if (plat) plat.selectedIndex = 0;
   }, 1000);
 }
