@@ -325,8 +325,10 @@
     <button class="mob-close" id="mobClose">✕</button>
     <a href="home.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a
       href="packages.html">Packages</a><a href="contact.html">Contact</a>
-    <a href="assets/docs/brochure.pdf" download="CognisysAI-Brochure.pdf" class="nav-brochure" style="margin-top: 1rem; font-size: 1.2rem; padding: 0.8rem 2rem;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <a href="assets/docs/brochure.pdf" download="CognisysAI-Brochure.pdf" class="nav-brochure"
+      style="margin-top: 1rem; font-size: 1.2rem; padding: 0.8rem 2rem;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
         <polyline points="7 10 12 15 17 10"></polyline>
         <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -353,7 +355,8 @@
       </ul>
       <div class="nav-right">
         <a href="assets/docs/brochure.pdf" download="CognisysAI-Brochure.pdf" class="nav-brochure">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -476,11 +479,11 @@
             <div class="f-row">
               <div class="fg">
                 <label>First Name</label>
-                <input type="text" placeholder="John" />
+                <input type="text" id="fn" placeholder="John" />
               </div>
               <div class="fg">
                 <label>Last Name</label>
-                <input type="text" placeholder="Doe" />
+                <input type="text" id="ln" placeholder="Doe" />
               </div>
             </div>
             <div class="fg">
@@ -489,11 +492,11 @@
             </div>
             <div class="fg">
               <label>Phone Number</label>
-              <input type="text" placeholder="+91 98765 43210" />
+              <input type="text" id="ph" placeholder="+91 98765 43210" />
             </div>
             <div class="fg">
               <label>Interested In</label>
-              <select>
+              <select id="svc">
                 <option value="" disabled selected>Select a Service</option>
                 <option value="seo">SEO & Google Ads</option>
                 <option value="social">Social Media Marketing</option>
@@ -504,7 +507,7 @@
             </div>
             <div class="fg">
               <label>Message</label>
-              <textarea rows="4" placeholder="Tell us about your project..."></textarea>
+              <textarea id="msg" rows="4" placeholder="Tell us about your project..."></textarea>
             </div>
             <button type="button" class="fsub" onclick="submitForm()">Submit Request →</button>
             <div id="fMsg"></div>

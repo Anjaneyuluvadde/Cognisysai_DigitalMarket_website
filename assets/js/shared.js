@@ -62,12 +62,71 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 });
 
 /* ── CONTACT FORM ── */
-function submitForm(){
-  var e=document.getElementById('em');
-  var m=document.getElementById('fMsg');
-  if(!e||!m)return;
-  var v=e.value.trim();
-  if(!v||!v.includes('@')){m.style.color='#f87171';m.textContent='⚠ Please enter a valid email address.';return;}
-  m.style.color='var(--orange)';m.textContent='✓ Thank you! We\'ll reach out within 24 hours with your free audit.';
-  e.value='';
+function submitForm() {
+  const fn = document.getElementById('fn'),
+    ln = document.getElementById('ln'),
+    em = document.getElementById('em'),
+    ph = document.getElementById('ph'),
+    svc = document.getElementById('svc'),
+    msg = document.getElementById('msg'),
+    fMsg = document.getElementById('fMsg');
+
+  if (!fn || !em || !ph || !fMsg) return;
+
+  // Reset message
+  fMsg.style.color = 'var(--orange)';
+  fMsg.textContent = 'Processing...';
+
+  // Validation
+  if (!fn.value.trim() || !em.value.trim() || !ph.value.trim()) {
+    fMsg.style.color = '#f87171';
+    fMsg.textContent = '⚠ Please fill in all required fields (Name, Email, Phone).';
+    return;
+  }
+
+  if (!em.value.includes('@')) {
+    fMsg.style.color = '#f87171';
+    fMsg.textContent = '⚠ Please enter a valid email address.';
+    return;
+  }
+
+  // Pre-fill data for WhatsApp
+  const fullMsg = `New Inquiry from Cognisys AI Website:
+Name: ${fn.value} ${ln.value}
+Email: ${em.value}
+Phone: ${ph.value}
+Service: ${svc.value || 'Not specified'}
+Message: ${msg.value || 'No message'}`;
+
+  // 1. WhatsApp Notification (Instant to Admin)
+  const adminPhone = '916300447384';
+  const waUrl = `https://api.whatsapp.com/send?phone=${adminPhone}&text=${encodeURIComponent(fullMsg)}`;
+
+  // 2. Email Notification Placeholder (Formspree)
+  // To activate email: replace 'YOUR_FORM_ID' with your real Formspree ID
+  const formID = 'YOUR_FORM_ID'; 
+  if (formID !== 'YOUR_FORM_ID') {
+    fetch(`https://formspree.io/f/${formID}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: fn.value + ' ' + ln.value,
+        email: em.value,
+        phone: ph.value,
+        service: svc.value,
+        message: msg.value
+      }),
+      headers: { 'Accept': 'application/json' }
+    }).catch(err => console.error('Email error:', err));
+  }
+
+  // Show success and open WhatsApp
+  fMsg.style.color = 'var(--orange)';
+  fMsg.textContent = '✓ Success! Redirecting to WhatsApp to finalize your request...';
+
+  setTimeout(() => {
+    window.open(waUrl, '_blank');
+    // Clear form
+    [fn, ln, em, ph, msg].forEach(el => { if (el) el.value = ''; });
+    if (svc) svc.selectedIndex = 0;
+  }, 1000);
 }
